@@ -1,9 +1,9 @@
-# CryptoHero
+# CryptoHero-EOS
 
 [![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/CryptoHero_Official)
 [![Join our Discord](https://www.shareicon.net/data/32x32/2016/12/30/866945_game_512x512.png)](https://discord.gg/nMXUYGQ)
 
-This repo is for CryptoHero, and copyright is owned by Andoromeda Foundation.
+This repo is for CryptoHero on EOS, and copyright is owned by Andoromeda Foundation.
 
 [English](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README.md) | [Chinese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-zh.md) | [Japanese](https://github.com/Andoromeda-Foundation/cryptohero-frontend/blob/master/README-jp.md)
 
@@ -16,29 +16,29 @@ This project is a Vue.js project which changed to public on March 9, 2018. Fully
 
 # install dependencies
 
-npm install
+yarn install
 
 
 # serve with hot reload at localhost:8080
 
-npm run dev
+yarn run dev
 
 
 # build for production with minification
 
-npm run build
+yarn run build
 
 
 # build for production and view the bundle analyzer report
 
-npm run build --report
+yarn run build --report
 
 
 # deploy /dist folder to gh-pages branch
 
-npm run deploy
+yarn run deploy
 
-``` 
+```
 
 # FAQs
 ## Basis
@@ -47,31 +47,31 @@ npm run deploy
 
 To start your journey in the world of CryptoHero, you need:
 
-*   A computer or laptop with chrome or Firefox desktop versions installed;
-*   Install MetaMask, a digital wallet for use with web applications;
-*   ETH, a digital currency that provides support for CryptoHero.
+*   A Modern Browser like chrome or Firefox
+*   Install Scatter, a digital wallet for EOS dApp;
+*   EOS Account, the unique account on the EOS Blockchain.
 
-### 2.Install MetaMask digital wallet
+### 2.Install Scatter wallet
 
-To use CryptoHero, you need to install Digital Wallet MetaMask. You need to top up with MetaMask to make your first purchase.
+To use CryptoHero, you need to install Digital Wallet Scatter. You need to top up with Scatter to make your first purchase.
 
-**Note**: The digital wallet like MetaMask is consistent with bank accounts - exercise caution and be sure not to forget your password or seed words.
+**Note**: The digital wallet like Scatter is consistent with bank accounts - exercise caution and be sure not to forget your password or seed words.
 
-### 3.Get ETH, your digital currency
+### 3.Get EOS, your digital currency
 
-**US citizens only**: You can buy ETH in MetaMask. ETH is a digital currency that makes it possible for our games to run.
+You will need to buy EOS from the exchange and then transfer EOS from your exchange wallet to your Scatter wallet. 
 
-**For others**: You will need to buy ETH from the exchange and then transfer ETH from your exchange wallet to your MetaMask wallet. Unfortunately, you can not just use the trading account to play with CryptoHero.
+Unfortunately, you can not just use the exchange's account to play with CryptoHero.
 
-### 4.Add ETH to MetaMask
+### 4.Add EOS Account to Scatter
 
-**US citizens only**: You can use the Coinbase widget to purchase ETH directly from MetaMask. It's easier and does not require you to create two accounts.
+**US citizens only**: You can use the Coinbase widget to purchase EOS directly from Scatter. It's easier and does not require you to create two accounts.
 
-**For others**: You need to buy ETH from the exchange in common law currency. Copy your MetaMask address, click '...' and then 'copy address to pasteboard'. Go to Coinbase and click on 'Account' then select your ETH wallet and click 'Send'. Paste the MetaMask address into the text box and enter the amount you want to transfer.
+**For others**: You need to buy EOS from the exchange in common law currency. Copy your Scatter address, click '...' and then 'copy address to pasteboard'. Go to Coinbase and click on 'Account' then select your EOS wallet and click 'Send'. Paste the Scatter address into the text box and enter the amount you want to transfer.
 
 ## What is CryptoGame
 
-CryptoGame, or blockchain games refers to a type of decentralized application made using blockchain technology, which goes back to the [Satoshi Dice](https://en.bitcoin.it/wiki/Satoshi_Dice) gambing game which was born in 2012 at the earliest.The game generates a set of random numbers between 0 and 65535 by setting different odds for several different transfer addresses and listening to the generated transaction hash when the user transfers to these addresses.The earliest games based on Ethereum smart contracts go back to the King of the Ether Throne. [King of the Ether Throne](https://www.reddit.com/r/ethereum/comments/44h1m1/a_new_%C3%B0app_king_of_the_ether_throne/)。 Like many other Dapps, encrypted games also face the performance bottlenecks Scability brings.
+CryptoGame, or blockchain games refers to a type of decentralized application made using blockchain technology, which goes back to the [Satoshi Dice](https://en.bitcoin.it/wiki/Satoshi_Dice) gambing game which was born in 2012 at the earliest.The game generates a set of random numbers between 0 and 65535 by setting different odds for several different transfer addresses and listening to the generated transaction hash when the user transfers to these addresses.The earliest games based on EOSIO smart contracts go back to the King of the EOSer Throne. [King of the EOSer Throne](https://www.reddit.com/r/EOSIO/comments/44h1m1/a_new_%C3%B0app_king_of_the_EOSer_throne/)。 Like many other Dapps, encrypted games also face the performance bottlenecks Scability brings.
 
 So most encrypted games now only save the user's assets on the blockchain.
 
@@ -85,11 +85,11 @@ The story, set in the Song dynasty, tells of how a group of 108 outlaws gather a
 
 Water Margin cards are the common happy memories of every 80 Chinese people.
 
-CryptoHero is a card game that buys the Hero card of the Water Margin on the blockchain and then can earn ETH Rewards. Through the smart contract technology to determine: Each card is unique, and corresponds to a Water Margin super hero! Once you have purchased a Water Margin Hero card, you now own the card. You can leave a message on your own card to express your attitude and show the spirit of Water Margin!
+CryptoHero is a card game that buys the Hero card of the Water Margin on the blockchain and then can earn EOS Rewards. Through the smart contract technology to determine: Each card is unique, and corresponds to a Water Margin super hero! Once you have purchased a Water Margin Hero card, you now own the card. You can leave a message on your own card to express your attitude and show the spirit of Water Margin!
 
-If someone buys your card, you lose ownership but earn more return on your investment into your MetaMask wallet.
+If someone buys your card, you lose ownership but earn more return on your investment into your Scatter wallet.
 
-CryptoHero is up to date every day, and all players can take part in the game with a handful of ETHs on the go and earn even more than 200% of the proceeds. If you are a small player, we give you the opportunity to participate in the game and double the principal. If you're a big player, you get a 20% your return on each hand, and you'll continue to make a profit.
+CryptoHero is up to date every day, and all players can take part in the game with a handful of EOSs on the go and earn even more than 200% of the proceeds. If you are a small player, we give you the opportunity to participate in the game and double the principal. If you're a big player, you get a 20% your return on each hand, and you'll continue to make a profit.
 
 The player who gets the card will have the right to change the ad slot below the card.
 
@@ -143,30 +143,16 @@ Water Margin Hero cards a total of 108 will be on a regular basis every day, wit
 
 ### 3.Cards price increase
 
-(0, 0.02eth): increase 200/95
-
-[0.02eth, 0.5eth): increase 135/96
-
-[0.5eth, 2.0eth): increase 125/97
-
-[2.0eth, 5.0eth): increase 117/97
-
-[5eth, +∞): increase 115/98
+T.B.A
 
 ### 4.Contract address
 
-[0xd0792aC0de7Ef31197C5f452B21A34389eCc725f](https://etherscan.io/address/0xd0792aC0de7Ef31197C5f452B21A34389eCc725f)
-
-### 5.Future planning
-
-In the Ethernet water margin card after the issuance of all cards, we will add more play on the basis of the Ethernet water margin card, please look forward to!
+T.B.A
 
 ## Advanced
 
-### 1.What is Ethereum?
+### 1.What is EOS?
 
-Ethereum is a bottom system that can realize smart contract and open source on the blockchain. From the birth of Ethereum to in May 2017, more than 200 Ethereum applications have been born in three and a half years. Ethereum is a platform and programming language that enables developers to build and publish next-generation distributed applications. Ethereum can be used to program, distribute, secure, and trade anything: voting, domain names, financial exchanges, crowdfunding, corporate governance, contracts and most agreements, intellectual property, and smart assets that benefit from hardware integration.
+EOS, aka EOSIO is a bottom system that can realize smart contract and open source on the blockchain. From the birth of EOSIO to in May 2017, more than 200 EOSIO applications have been born in three and a half years. EOSIO is a platform and programming language that enables developers to build and publish next-generation distributed applications. EOSIO can be used to program, distribute, secure, and trade anything: voting, domain names, financial exchanges, crowdfunding, corporate governance, contracts and most agreements, intellectual property, and smart assets that benefit from hardware integration.
 
-### 2.What is ERC721 Token?
 
-The core of ERC721 Token is "Non-Fungible Token", which is non - homogeneity token. How to understand " non - homogeneity"? CryptoHero, for example, each card is unique. In principle, each card is a unique piece of code on the blockchain platform. Moreover, ERC 721 each token has an independent unique tokenid, for example, which is the equivalent of the unique id of each card in CryptoHero.
