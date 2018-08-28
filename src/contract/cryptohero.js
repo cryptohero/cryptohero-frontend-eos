@@ -3,10 +3,8 @@ import { NasTool } from '@/api';
 import heroProfile from '@/config/cards.json';// '@/heroProfile.json';
 import heroStatus from '../../static/herostatu.json';
 import Contract from './contract';
-import 'nasa.js/dist/nasa';
 
-const { NebPay } = Nasa;
-const nebPay = new NebPay();
+const scatter = window.scatter;
 
 function getCardInfoByHeroId(id, tkId, prices, claim) {
   const basic = heroProfile[id];
@@ -290,7 +288,7 @@ export default class LinkIdolContract extends Contract {
   }
 
   async checkSerialNumber(sn) {
-    return await nebPay.queryPayInfo(sn, {
+    return await scatter.queryPayInfo(sn, {
       callback: NebPay.config.mainnetUrl,
     });
     // .then(function (resp) {

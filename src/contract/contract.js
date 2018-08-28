@@ -1,8 +1,6 @@
 import request from 'superagent';
-import 'nasa.js/dist/nasa';
-// import NebPay from 'nebpay.js';
 
-const nebPay = new Nasa.NebPay();
+const scatter = window.scatter;
 
 const networkSetting = {
   mainnet: {
@@ -56,10 +54,10 @@ export default class Contract {
      * @param: functionName - The name of the function
      * @param: value - How many nebulas NAS should cost
      * @param: data - Function arguement, please enter arguement in ordered array
-     * @param: options - please check https://github.com/nebulasio/nebPay/blob/master/doc/NebPay%E4%BB%8B%E7%BB%8D.md#options
+     * @param: options - please check https://github.com/nebulasio/scatter/blob/master/doc/NebPay%E4%BB%8B%E7%BB%8D.md#options
      */
   async send({ functionName, value = 0, data = [], options = { undefined } }) {
-    const resp = await nebPay.call(
+    const resp = await scatter.call(
       this.contractAddress,
       value,
       functionName,
