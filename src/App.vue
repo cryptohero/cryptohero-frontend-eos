@@ -3,7 +3,7 @@
     <Header />
 
     <div class="container main-container">
-      <router-view :key="key"></router-view>
+      <router-view></router-view>
     </div>
 
     <Footer />
@@ -36,16 +36,15 @@ export default {
     });
   },
   computed: {
-    key() {
-      const { $route } = this
-      return $route.name !== undefined
-        ? $route.name + +new Date()
-        : $route + +new Date();
-    },
+    // key() {
+    //   const { $route } = this
+    //   return $route.name !== undefined
+    //     ? $route.name + +new Date()
+    //     : $route + +new Date();
+    // },
   },
   methods: {
     ...mapActions(['initScatter']),
-    ...mapMutations(['setIdentity']),
     handleScatterLoaded () {
       const scatter = window.scatter
       this.initScatter(scatter)
@@ -61,7 +60,6 @@ export default {
     async requestId () {
       await this.suggestNetworkSetting()
       const identity = await scatter.getIdentity(requiredFields)
-      this.setIdentity(identity)
     }
   },
 

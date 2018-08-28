@@ -8,5 +8,6 @@
 export default {
   getServerURL: () => 'https://api.cryptohero.pro/',
   getContractNet: () => 'mainnet',
-  accounts: state => state.identity.accounts.find(({ blockchain }) => blockchain === 'eos') || null
+  identity: ({ scatter }) => scatter.identity || null,
+  account: ({ scatter }) => scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos') || null,
 };
