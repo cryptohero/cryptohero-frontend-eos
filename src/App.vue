@@ -11,9 +11,13 @@
 </template>
 
 <script>
+import { mapMutations, mapActions } from "vuex";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Cookie from 'js-cookie';
+import { networks } from "./config";
+const network = networks['kylin']
+const requiredFields = { accounts: [network] }
 
 export default {
   name: 'App',
@@ -21,14 +25,7 @@ export default {
     Header,
     Footer,
   },
-  computed: {
-    key() {
-      return this.$route.name !== undefined
-        ? this.$route.name + +new Date()
-        : this.$route + +new Date();
-    },
-  },
-  async created() {
+  created() {
     const referrer = this.$route.query.ref;
     if (this.$store.state.me !== referrer && referrer) {
       Cookie.set('referrer', referrer, { expires: 356 });
@@ -38,6 +35,36 @@ export default {
       this.handleScatterLoaded();
     });
   },
+  computed: {
+    key() {
+      const { $route } = this
+      return $route.name !== undefined
+        ? $route.name + +new Date()
+        : $route + +new Date();
+    },
+  },
+  methods: {
+    ...mapActions(['initScatter']),
+    ...mapMutations(['setIdentity']),
+    handleScatterLoaded () {
+      const scatter = window.scatter
+      this.initScatter(scatter)
+      this.requestId()
+    },
+    async suggestNetworkSetting () {
+      try {
+        await this.scatter.suggestNetwork(network)
+      } catch (error) {
+        console.info('User canceled to suggestNetwork')
+      }
+    },
+    async requestId () {
+      await this.suggestNetworkSetting()
+      const identity = await scatter.getIdentity(requiredFields)
+      this.setIdentity(identity)
+    }
+  },
+
 };
 </script>
 

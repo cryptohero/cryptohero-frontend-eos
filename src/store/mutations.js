@@ -1,18 +1,9 @@
 // https://vuex.vuejs.org/en/mutations.html
+import { networks } from "../config";
 
-// The only way to actually change state in a Vuex store is by committing a mutation.
-
-// You cannot directly call a mutation handler.
-// Think of it more like event registration: "When a mutation with type increment is triggered,
-// call this handler." To invoke a mutation handler, you need to call store.commit with its type.
-
-// Mutation handler functions must be synchronous
-// One important rule to remember is that mutation handler functions must be synchronous.
-
-// Using Constants for Mutation Types
-// import * as types from './mutation-types';
 
 import Vue from 'vue';
+import Eos from "eosjs";
 
 export default {
   setLocale(state, locale) {
@@ -21,11 +12,13 @@ export default {
   SET_ME(state, me) {
     state.me = me;
   },
-  setScatter(state, scatter) {
+  setScatter(state, scatter,) {
     state.scatter = scatter;
-    state.eos = scatter.eos(network, Eos, {});
-    state.identity = scatter.identity;
-    state.account = scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos');
+    // const networkName = state.network || 'mainnet'
+    // const network = networks[networkName]
+    // state.eos = scatter.eos(network, Eos, {});
+    // state.identity = scatter.identity;
+    // state.account = scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos');
   },
   setIdentity(state, identity) {
     state.identity = identity;

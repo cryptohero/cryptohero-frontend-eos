@@ -14,16 +14,9 @@ export default () => ({
   locale: '',
   me: null,
   signInError: null,
+  network: 'kylin',
+  scatter: null,
   items: cards,
   ads: {},
   myCards: [],
-  /* Example
-  msg: 'HelloWord',
-  todos: [
-    { id: 1, text: '...', done: true },
-    { id: 2, text: '...', done: false }
-  ]
-  // The state can be gotten in all child components. Such as: this.$store.state.msg
-  // You should never directly modify the state. Such as: this.$store.state.msg = "New Msg";
-  */
 });

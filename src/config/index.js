@@ -2,44 +2,53 @@ import cardsData from './cards.json';
 
 /* eslint-disable import/prefer-default-export */
 
-export const network = {
-  1: {
-    default: true, // It will be used when no metaMask
-    name: 'Main Ethereum Network',
-    contract: '0xd0792ac0de7ef31197c5f452b21a34389ecc725f',
-    convert: '0x0297fdbcb9c2023bc05ad44c9f6e69b0ae6261ce',
-    luckyPackage: '0x8b481c5af4734501ea8b6a0c3502e001dd883d3d',
-    rpc: 'https://mainnet.infura.io/lTETGFVyQX99UKQ98BN4',
+// Use EOS Asia for Mainnet
+export const eosOptions = {
+  'eosasia': {
+    'httpEndpoint': 'https://api1.eosasia.one',
+    'verbose': true,
+    'chainId': 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'
   },
-  2: {
-    name: 'Morden Test Network',
-    contract: '',
+  'kylin': {
+    'httpEndpoint': 'https://api-kylin.eosasia.one',
+    'verbose': true,
+    'chainId': '5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191'
   },
-  3: {
-    default: true, // It will be used when no metaMask
-    name: 'Ropsten Test Network',
-    contract: '0xD62ccC23C5e1Db41C017913303bdB09e570284f6',
-    convert: '0xE3F437609E97246734aa6A550E407E14dB2f53b1',
-    luckyPackage: '0xDC060a83C8A81a029676e85DEe8c0D090b52F2dD',
-    DecentralizedExchangeHotPotato: '0x4a11d94715194d602f9ec570e446e33bf9e41fed',
-    rpc: 'https://ropsten.infura.io/lTETGFVyQX99UKQ98BN4',
-  },
-  4: {
-    name: 'Rinkeby Test Network',
-    contract: '',
-    rpc: 'https://rinkeby.infura.io/lTETGFVyQX99UKQ98BN4',
-  },
-  42: {
-    name: 'Kovan Test Network',
-    contract: '0x23f9d870fbee3161443d9898d0c494ce0416b886',
-    luckyPackage: '0xb760ada4f12e5d29eff2d9eef3bca94b574a1f2f',
-    convert: '0xb55edc9c72d56447d6d1ea2476bcb42e74df16cf',
-    DecentralizedExchangeHotPotato: '0xac7e1a3263e06329eee8ac5b45f3ac2223119779',
-    rpc: 'https://kovan.infura.io/lTETGFVyQX99UKQ98BN4',
-  },
-};
+  'local': {
+    'httpEndpoint': 'http://127.0.0.1:8888',
+    'verbose': true,
+    'chainId': 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'
+  }
 
-export const defaultNetwork = Object.values(network).find(net => net.default);
+}
+// Use CryptoKylin for Testnet
+export const networks = {
+  'kylin': {
+    'protocol': 'https',
+    'blockchain': 'eos',
+    'host': 'api-kylin.eosasia.one',
+    'port': 443,
+    'chainId': '5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191'
+  },
+  'local': {
+    'blockchain': 'eos',
+    'host': '127.0.0.1',
+    'port': 8888,
+    'protocol': 'http',
+    'chainId': 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f',
+    'verbose': true,
+    'debug': true
+  },
+  'eosasia': {
+    'protocol': 'https',
+    'blockchain': 'eos',
+    'host': 'api1.eosasia.one',
+    'port': 443,
+    'chainId': 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'
+  }
+}
+
+
 
 export const cards = cardsData;
 
