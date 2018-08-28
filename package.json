@@ -1,7 +1,7 @@
 {
-  "name": "cryptohero-frontend",
+  "name": "cryptohero-frontend-eos",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Card Game on EOSIO Blockchain",
   "author": "",
   "private": true,
   "scripts": {
