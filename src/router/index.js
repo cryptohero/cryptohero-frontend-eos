@@ -91,6 +91,6 @@ export default new Router({
       name: 'Recommend',
       path: '/Recommend/:heroId/:num',
       component: Recommend,
-    }
+    },
   ],
 });

@@ -100,27 +100,27 @@ export default {
       return '请安装钱包插件再来';
     },
   },
-async mounted() {
-  const  contract = new Contract();
-  const  res = await contract.getTotalEarnByReference();
-  if(res !== null){
-    this.items = res.sort(this.compare('balance'));
-  }
-},
+  async mounted() {
+    const contract = new Contract();
+    const res = await contract.getTotalEarnByReference();
+    if (res !== null) {
+      this.items = res.sort(this.compare('balance'));
+    }
+  },
   methods: {
-    copyFun(){
-      var clipboard = new Clipboard('.btn')
-      clipboard.on('success', e => {
-        console.log('复制成功')
+    copyFun() {
+      const clipboard = new Clipboard('.btn');
+      clipboard.on('success', (e) => {
+        console.log('复制成功');
         // 释放内存
-        clipboard.destroy()
-      })
-      clipboard.on('error', e => {
+        clipboard.destroy();
+      });
+      clipboard.on('error', (e) => {
         // 不支持复制
-        console.log('该浏览器不支持自动复制')
+        console.log('该浏览器不支持自动复制');
         // 释放内存
-        clipboard.destroy()
-      })
+        clipboard.destroy();
+      });
     },
     async fetchInviteData() {
       const contract = new Contract();
@@ -128,7 +128,7 @@ async mounted() {
         functionName: 'getReferralHistory',
         args: [this.me],
       });
-      console.log(result)
+      console.log(result);
       this.items = JSON.parse(result);
       console.log(`fetch ok ${this.items}`);
     },

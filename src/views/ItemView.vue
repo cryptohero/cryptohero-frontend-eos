@@ -169,7 +169,7 @@ import Contract from '@/contract/cryptohero';
 import { NasTool } from '@/api';
 import { toReadablePrice } from '@/util';
 import PulseLoader from 'vue-spinner/src/PulseLoader';
-import ElPopover from "../../node_modules/element-ui/packages/popover/src/main.vue";
+import ElPopover from '../../node_modules/element-ui/packages/popover/src/main.vue';
 
 export default {
   name: 'item-view',
@@ -183,7 +183,7 @@ export default {
       loading: true,
       uri: '',
       tkId: '',
-      heroNum: ''
+      heroNum: '',
     };
   },
   components: {
@@ -191,22 +191,22 @@ export default {
     PulseLoader,
   },
   async created() {
-//    this.tkId = this.$route.params.id;
+    //    this.tkId = this.$route.params.id;
     const contract = new Contract();
     const result = await contract.getCardsByAddress(this.me);
     let num = 0;
     let tkLength = this.$route.params.id;
 
-    if (typeof tkLength === "undefined") {
-      var arr = window.location.href.split('/');
-      if(arr.length > 5){
-        tkLength = arr[5]
-        this.tkId = arr[5]
+    if (typeof tkLength === 'undefined') {
+      const arr = window.location.href.split('/');
+      if (arr.length > 5) {
+        tkLength = arr[5];
+        this.tkId = arr[5];
       }
     }
-    for(var i in result){
-      if(result[i].tokenId <= tkLength ){
-        num = num + 1;
+    for (const i in result) {
+      if (result[i].tokenId <= tkLength) {
+        num += 1;
       }
     }
     this.createMark(num);
@@ -215,12 +215,12 @@ export default {
     async getCardNum() {
       const contract = new Contract();
       const result = await contract.getCardsByAddress(this.me);
-      console.error(result)
-      var num = 0;
-      let tkLength = this.$route.params.tokenId;
-      for(var em in result){
-        if(em.tokenId <= tkLength ){
-          num = num + 1;
+      console.error(result);
+      let num = 0;
+      const tkLength = this.$route.params.tokenId;
+      for (const em in result) {
+        if (em.tokenId <= tkLength) {
+          num += 1;
         }
       }
       return num;
@@ -271,7 +271,7 @@ export default {
     async item() {
       const contract = new Contract();
       const result = await contract.getCardInfoByTokenId(this.$route.params.id);
-      console.error(result)
+      console.error(result);
       this.loading = false;
       return result;
     },
@@ -341,22 +341,22 @@ export default {
         } */
     },
   },
- async mounted() {
+  async mounted() {
 
   },
   methods: {
-    createMark(num){
-      var QRCode = require('qrcode')
-      var thiz = this;
-//      const links =window.location.host+'/#/Recommend/'+ this.$route.params.code + '/'+ num  ; //待完善
-      const links ='https://nas.cryptohero.pro/#/Recommend/'+ this.$route.params.code + '/'+ num  ;
-//      const links = `http://test.cdn.hackx.org/heros_new/${this.$route.params.code}.jpeg`
-//      const  links = `https://nas.cryptohero.pro/#/Recommend/42/0`;
+    createMark(num) {
+      const QRCode = require('qrcode');
+      const thiz = this;
+      //      const links =window.location.host+'/#/Recommend/'+ this.$route.params.code + '/'+ num  ; //待完善
+      const links = `https://nas.cryptohero.pro/#/Recommend/${this.$route.params.code}/${num}`;
+      //      const links = `http://test.cdn.hackx.org/heros_new/${this.$route.params.code}.jpeg`
+      //      const  links = `https://nas.cryptohero.pro/#/Recommend/42/0`;
 
-      QRCode.toDataURL(links, function (err, url) {
+      QRCode.toDataURL(links, (err, url) => {
         thiz.uri = url;
         return url;
-      })
+      });
     },
     async updatePrice() {
       const contract = new Contract();

@@ -31,7 +31,7 @@ module.exports = {
   User: 'User',
   'His Cards': 'His/Her Cards',
   key: 'Wallet Address: ',
-  ranking:'Ranking',
+  ranking: 'Ranking',
   KeyAddress: 'Wallet Address',
   Herocoin: 'HeroCoin',
   Collect: 'collection',

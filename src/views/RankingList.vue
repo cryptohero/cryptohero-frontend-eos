@@ -38,27 +38,27 @@
 import Contract from '../contract/cryptohero';
 import LinkIdol from '@/contract/cryptohero';
 
-  export default {
-    name: 'RankingList',
-    data(){
-      return{
-        title:"排行榜",
-        methods :{
-          ranking: function(index){
-            return "rank_"+ index
-          }
+export default {
+  name: 'RankingList',
+  data() {
+    return {
+      title: '排行榜',
+      methods: {
+        ranking(index) {
+          return `rank_${index}`;
         },
-        items: []
-      }
-    },
+      },
+      items: [],
+    };
+  },
 
-    async mounted() {
-      const  contract = new Contract();
-      const  res = await contract.getHoldersStat();
-      if(res !== null){
-        this.items = res.sort(this.compare('balance'));
-      }
-    },
+  async mounted() {
+    const contract = new Contract();
+    const res = await contract.getHoldersStat();
+    if (res !== null) {
+      this.items = res.sort(this.compare('balance'));
+    }
+  },
 
   // async getTotalEarnByShare() {
   //   const idol = new LinkIdol();
@@ -71,29 +71,27 @@ import LinkIdol from '@/contract/cryptohero';
   //   return JSON.parse(result)||0;
   // },
 
-    methods: {
-      compare(prop) {
-        return function (obj1, obj2) {
-          var val1 = obj1[prop];
-          var val2 = obj2[prop];
-          if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
-            val1 = Number(val1);
-            val2 = Number(val2);
-          }
-          if (val1 < val2) {
-            return 1;
-          } else if (val1 > val2) {
-            return -1;
-          } else {
-            return 0;
-          }
+  methods: {
+    compare(prop) {
+      return function (obj1, obj2) {
+        let val1 = obj1[prop];
+        let val2 = obj2[prop];
+        if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
+          val1 = Number(val1);
+          val2 = Number(val2);
         }
-      }
+        if (val1 < val2) {
+          return 1;
+        } else if (val1 > val2) {
+          return -1;
+        }
+        return 0;
+      };
     },
-  }
+  },
+};
 
 </script>
-
 
 
 <!--<template>

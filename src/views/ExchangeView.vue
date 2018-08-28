@@ -101,8 +101,8 @@ import { toReadablePrice } from '@/util';
 import Contract from '@/contract/cryptohero';
 import superagent from 'superagent';
 import Paginate from 'vuejs-paginate';
-import ElButton from "../../node_modules/element-ui/packages/button/src/button.vue";
-import ElInput from "../../node_modules/element-ui/packages/input/src/input.vue";
+import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue';
+import ElInput from '../../node_modules/element-ui/packages/input/src/input.vue';
 import '../../node_modules/element-ui/lib/theme-chalk/index.css';
 import { Message } from 'element-ui';
 
@@ -128,7 +128,7 @@ export default {
     };
   },
 
- components: {
+  components: {
     Message,
     ElInput,
     ElButton,
@@ -140,22 +140,22 @@ export default {
   },
   async created() {
     const contract = new Contract();
-    var ids = [];
+    const ids = [];
 
-    superagent.get("https://togetthere.cn/nasapi/hero").end(async (err, res) => {
-      var heros = JSON.parse(res.text);
+    superagent.get('https://togetthere.cn/nasapi/hero').end(async (err, res) => {
+      const heros = JSON.parse(res.text);
 
-      var herodata = heros.data;
+      const herodata = heros.data;
       // var i2 = 0; //control
-      
-      for (let i = 0; i < herodata.length ; i++) {
+
+      for (let i = 0; i < herodata.length; i++) {
         ids.push(parseInt(herodata[i].tokenId));
         // i2 += 1; //control
         // if(i2 > 12) break; //control
       }
 
       const result = [];
-      for (var i = 0; i < ids.length ; i++) {
+      for (let i = 0; i < ids.length; i++) {
         result.push({});
         result[i] = {};
         // result[i].code = herodata[i].heroId;
@@ -168,23 +168,22 @@ export default {
       this.saveitemIds = result;
       this.loading = false;
 
-      this.pagecount = Math.ceil(this.itemIds.length/8);
-      this.showitemIds = this.itemIds.slice(0,8);
+      this.pagecount = Math.ceil(this.itemIds.length / 8);
+      this.showitemIds = this.itemIds.slice(0, 8);
     });
-    
   },
 
   methods: {
-    
+
     toDisplayedPrice(priceInWei) {
       const readable = toReadablePrice(priceInWei);
       return `${readable.price} ${readable.unit}`;
     },
     drawClicked() {
-      var href="/#/draw";
+      const href = '/#/draw';
       window.location.href = href;
     },
-        toDisplayedPrice(priceInWei) {
+    toDisplayedPrice(priceInWei) {
       const readable = toReadablePrice(priceInWei);
       return `${readable.price} ${readable.unit}`;
     },
@@ -198,22 +197,22 @@ export default {
     getCardImage(id) {
       return `http://test.cdn.hackx.org/heros_new/${id}.jpeg`;
     },
-    getCardBack(){
+    getCardBack() {
       return `http://test.cdn.hackx.org/cardback/cardback_light.png`;
     },
-    getCardLightBack(){
+    getCardLightBack() {
       return `http://test.cdn.hackx.org/cardback/cardback.png`;
     },
-    lightShow: function(id) {
+    lightShow(id) {
       this.lightisShow[id] = true;
       this.$forceUpdate();
     },
-    lightunShow: function(id) {
+    lightunShow(id) {
       this.lightisShow[id] = false;
       this.$forceUpdate();
     },
-    clickCallback: function(pageNum) {
-      this.showitemIds = this.itemIds.slice((pageNum-1)*8,pageNum*8);
+    clickCallback(pageNum) {
+      this.showitemIds = this.itemIds.slice((pageNum - 1) * 8, pageNum * 8);
     },
     queryAll() {
       this.itemIds = this.saveitemIds;
@@ -221,20 +220,20 @@ export default {
       this.pagecount = Math.ceil(this.saveitemIds.length / 8);
     },
     search() {
-      if(!this.heroName) {
+      if (!this.heroName) {
         this.queryAll();
       } else {
         this.queryResult('code');
       }
     },
     queryResult(name) {
-      var res = [];
-      for(let i = 0; i < this.itemIds.length ; i++) {
-        if(this.itemIds[i].name.indexOf(this.heroName) != -1){
+      const res = [];
+      for (let i = 0; i < this.itemIds.length; i++) {
+        if (this.itemIds[i].name.indexOf(this.heroName) != -1) {
           res.push(this.itemIds[i]);
           continue;
         }
-        if(this.itemIds[i].nickname.indexOf(this.heroName) != -1){
+        if (this.itemIds[i].nickname.indexOf(this.heroName) != -1) {
           res.push(this.itemIds[i]);
           continue;
         }
@@ -243,21 +242,21 @@ export default {
         // }
       }
       this.itemIds = res.sort(this.compare(name));
-      this.showitemIds = this.itemIds.slice(0,8);
-      this.pagecount = Math.ceil(this.itemIds.length/8);
+      this.showitemIds = this.itemIds.slice(0, 8);
+      this.pagecount = Math.ceil(this.itemIds.length / 8);
     },
     ObjecSort(name) {
-      if(!this.heroName) {
+      if (!this.heroName) {
         this.itemIds = this.saveitemIds;
       }
       this.itemIds.sort(this.compare(name));
-      this.showitemIds = this.itemIds.slice(0,8);
-      this.pagecount = Math.ceil(this.itemIds.length/8);
+      this.showitemIds = this.itemIds.slice(0, 8);
+      this.pagecount = Math.ceil(this.itemIds.length / 8);
     },
     compare(prop) {
       return function (obj1, obj2) {
-        var val1 = obj1[prop];
-        var val2 = obj2[prop];
+        let val1 = obj1[prop];
+        let val2 = obj2[prop];
         if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
           val1 = Number(val1);
           val2 = Number(val2);
@@ -266,10 +265,9 @@ export default {
           return -1;
         } else if (val1 > val2) {
           return 1;
-        } else {
-          return 0;
         }
-      }
+        return 0;
+      };
     },
   },
 };

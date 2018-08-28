@@ -33,6 +33,10 @@ export default {
     if (this.$store.state.me !== referrer && referrer) {
       Cookie.set('referrer', referrer, { expires: 356 });
     }
+    document.addEventListener('scatterLoaded', (scatterExtension) => {
+      console.log('Scatter Plugin Detected, storing scatter to store');
+      this.handleScatterLoaded();
+    });
   },
 };
 </script>

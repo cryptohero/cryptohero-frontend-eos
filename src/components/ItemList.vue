@@ -56,6 +56,7 @@
 
 <script>
 import { toReadablePrice } from '@/util';
+
 export default {
   name: 'item-lists',
   props: ['itemIds'],
@@ -72,7 +73,7 @@ export default {
         item.id = id;
         return item || { id };
       });
-    },*/
+    }, */
   },
 
   methods: {
@@ -90,26 +91,26 @@ export default {
     getCardImage(id) {
       return `http://test.cdn.hackx.org/heros_new/${id}.jpeg`;
     },
-    getCardBack(){
+    getCardBack() {
       return `http://test.cdn.hackx.org/cardback/cardback_light.png`;
     },
-    getCardLightBack(){
+    getCardLightBack() {
       return `http://test.cdn.hackx.org/cardback/cardback.png`;
     },
-    lightShow: function(id) {
+    lightShow(id) {
       // console.log(id+"qwwwww"+this.lightisShow[id])
       this.lightisShow[id] = true;
       this.$forceUpdate();
     },
-    lightunShow: function(id) {
+    lightunShow(id) {
       // console.log(id+"qwwwww"+this.lightisShow[id])
       this.lightisShow[id] = false;
       this.$forceUpdate();
-    }
+    },
   },
 
   created() {
-    for(var i=0;i<=114;i++){
+    for (let i = 0; i <= 114; i++) {
       this.lightisShow[i] = false;
     }
   },

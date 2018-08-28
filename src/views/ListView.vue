@@ -62,41 +62,41 @@ export default {
     async getBalance() {
       const idol = new Contract();
       const result = await idol.getBalance();
-      return JSON.parse(result)||0;
+      return JSON.parse(result) || 0;
     },
     async getTotalEarnByShareAllUser() {
       const idol = new Contract();
       const result = await idol.getTotalEarnByShareAllUser();
-      return JSON.parse(result)||0;
+      return JSON.parse(result) || 0;
     },
     async getTotalEarnByReferenceAllUser() {
       const idol = new Contract();
       const result = await idol.getTotalEarnByReferenceAllUser();
-      return JSON.parse(result)||0;
-    }
+      return JSON.parse(result) || 0;
+    },
 
   },
   async created() {
-//    this.total = await getTotal();这里去监听了eth合约
-//    const itemIds = await getItemIds(0, this.total);
-//    const itemIds = await getItemIds(0, 0);
+    //    this.total = await getTotal();这里去监听了eth合约
+    //    const itemIds = await getItemIds(0, this.total);
+    //    const itemIds = await getItemIds(0, 0);
     const contrat = new Contract();
-    const  total = await contrat.getTotalSupply();
-    if(total === 0 ){
+    const total = await contrat.getTotalSupply();
+    if (total === 0) {
       this.loading = false;
-      return ;
+      return;
     }
-    let ids = [];
-    let start = total - 12;
-    for (let i = total; i >= start ; --i) {
+    const ids = [];
+    const start = total - 12;
+    for (let i = total; i >= start; --i) {
       ids.push(i);
     }
- /*   let ids = [];
+    /*   let ids = [];
     for (let i = 12; i > 0 ; --i) {
       ids.push(i);
-    }*/
-    //通过tokenId图片相关信息
-//    const result = await contrat.getCarInfoByTokenId(itemIds);
+    } */
+    // 通过tokenId图片相关信息
+    //    const result = await contrat.getCarInfoByTokenId(itemIds);
     const result = await contrat.getCarInfoByTokenId(ids);
     this.itemIds = result;
     this.loading = false;
@@ -108,9 +108,9 @@ export default {
       return `${readable.price} ${readable.unit}`;
     },
     drawClicked() {
-      var href="/#/draw";
+      const href = '/#/draw';
       window.location.href = href;
-    }
+    },
   },
   watch: {},
 };

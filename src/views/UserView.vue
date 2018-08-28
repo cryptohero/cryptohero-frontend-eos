@@ -130,10 +130,11 @@ import LinkIdol from '@/contract/cryptohero';
 import CardItem from '@/components/CardItem';
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import Paginate from 'vuejs-paginate';
-import ElButton from "../../node_modules/element-ui/packages/button/src/button.vue";
-import ElInput from "../../node_modules/element-ui/packages/input/src/input.vue";
+import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue';
+import ElInput from '../../node_modules/element-ui/packages/input/src/input.vue';
 import '../../node_modules/element-ui/lib/theme-chalk/index.css';
 import { Message } from 'element-ui';
+
 export default {
   name: 'MyCollectionPage',
   data: () => ({
@@ -156,13 +157,13 @@ export default {
     actionFlag: true,
 
   }),
-  /*asyncComputed: {
+  /* asyncComputed: {
     async profile() {
       const nasId = new NasId();
       const result = await nasId.fetchAccountDetail(this.address);
       return result;
     },
-  },*/
+  }, */
   components: {
     Message,
     ElInput,
@@ -175,17 +176,17 @@ export default {
     async getShareOfHolder() {
       const idol = new LinkIdol();
       const result = await idol.getShareOfHolder(this.address);
-      return result||0;
+      return result || 0;
     },
     async getTotalEarnByShare() {
       const idol = new LinkIdol();
       const result = await idol.getTotalEarnByShare(this.address);
-      return JSON.parse(result)||0;
+      return JSON.parse(result) || 0;
     },
     async getTotalEarnByReference() {
       const idol = new LinkIdol();
       const result = await idol.getTotalEarnByReference(this.address);
-      return JSON.parse(result)||0;
+      return JSON.parse(result) || 0;
     },
     async profile() {
       const nasId = new NasId();
@@ -196,47 +197,47 @@ export default {
       const idol = new LinkIdol();
       const result = await idol.getUserCards(this.address);
       this.loading = false;
-      //是否兑换
+      // 是否兑换
       this.allCardsInfo = result.sort(this.compare('code'));
       this.allMyCards = this.allCardsInfo;
       this.allCardsCount = this.allCardsInfo.length;
-     /* this.saveData = this.allCardsInfo;
+      /* this.saveData = this.allCardsInfo;
       this.cardlist = result.slice(0,8);
-      this.pagecount = Math.ceil(result.length/8);*/
-      var rsp = [];
-      var rt = [];
-      var rnum =[];
-      for(let i = 0; i < this.allCardsInfo.length ; i++){
+      this.pagecount = Math.ceil(result.length/8); */
+      const rsp = [];
+      const rt = [];
+      const rnum = [];
+      for (let i = 0; i < this.allCardsInfo.length; i++) {
         rsp.push(this.allCardsInfo[i].code);
-         if(!this.allCardsInfo[i].claimed){
-           rt.push(this.allCardsInfo[i]);
-           rnum.push(this.allCardsInfo[i].code)
-         }
+        if (!this.allCardsInfo[i].claimed) {
+          rt.push(this.allCardsInfo[i]);
+          rnum.push(this.allCardsInfo[i].code);
+        }
       }
       this.uniqueNum = this.unique(rsp);
-     this.total =  this.uniqueNum.length;
-     var final = []
+      this.total = this.uniqueNum.length;
+      const final = [];
       const finalNum = this.unique(rnum);
       this.finalNums = finalNum;
 
-      for(var i in finalNum){
-       for(var em in rt){
-          if(rt[em].code === finalNum[i]){
-            final.push(rt[em])
+      for (const i in finalNum) {
+        for (const em in rt) {
+          if (rt[em].code === finalNum[i]) {
+            final.push(rt[em]);
             break;
           }
-       }
-     }
+        }
+      }
       this.saveData = final;
-      this.cardlist = final.slice(0,8);
-      this.pagecount = Math.ceil(final.length/8);
+      this.cardlist = final.slice(0, 8);
+      this.pagecount = Math.ceil(final.length / 8);
       return final;
     },
     async NotClectionCards() {
-      const arr = []
+      const arr = [];
       const clNum = this.finalNums;
-      for(let i = 0; i < 115; i++) {
-        if(clNum.indexOf(i) === -1) {
+      for (let i = 0; i < 115; i++) {
+        if (clNum.indexOf(i) === -1) {
           arr.push(i);
         }
       }
@@ -244,41 +245,39 @@ export default {
       const contract = new LinkIdol();
       const result = await contract.getNotCollectCards(arr);
       this.unCollectData = result;
-//       contract.cheat();
+      //       contract.cheat();
       return result;
     },
   },
   methods: {
-    AllClection(){
+    AllClection() {
       this.allCardsInfo = this.allMyCards.sort(this.compare('code'));
-      this.cardlist = this.allMyCards.slice(0,8);
-      this.pagecount = Math.ceil(this.allMyCards.length/8);
+      this.cardlist = this.allMyCards.slice(0, 8);
+      this.pagecount = Math.ceil(this.allMyCards.length / 8);
     },
     NotClection() {
       this.allCardsInfo = this.unCollectData.sort(this.compare('code'));
-      this.cardlist = this.allCardsInfo.slice(0,8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length/8);
+      this.cardlist = this.allCardsInfo.slice(0, 8);
+      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
       this.actionFlag = false;
     },
-    HadClection(){
+    HadClection() {
       this.allCardsInfo = this.saveData.sort(this.compare('code'));
-      this.cardlist = this.allCardsInfo.slice(0,8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length/8);
+      this.cardlist = this.allCardsInfo.slice(0, 8);
+      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
       this.actionFlag = true;
     },
     minusFun(arr1, arr2) {
-      return arr1.uniquelize().each(function (o) {
-        return arr2.contains(0) ? null : o;
-      });
+      return arr1.uniquelize().each(o => (arr2.contains(0) ? null : o));
     },
     async claim() {
       if (this.total < 108) {
-        alert("尚未集满108种卡牌，无法进行兑换。");
-        $("#btn").attr("disabled","true");
+        alert('尚未集满108种卡牌，无法进行兑换。');
+        $('#btn').attr('disabled', 'true');
       }
       const contract = new LinkIdol();
       const result = await contract.claim();
-      if (result != "cancel") {
+      if (result != 'cancel') {
         this.rankAfterClaim(result);
       }
     },
@@ -286,28 +285,29 @@ export default {
       this.ObjecSort(this.typeFlag);
     },
     unique(arr) {
-  let result = [], hash = {};
-  for (let i = 0, elem; (elem = arr[i]) != null; i++) {
-    if (!hash[elem]) {
-      result.push(elem);
-      hash[elem] = true;
-    }
-  }
-  return result;
-},
+      let result = [],
+        hash = {};
+      for (let i = 0, elem; (elem = arr[i]) != null; i++) {
+        if (!hash[elem]) {
+          result.push(elem);
+          hash[elem] = true;
+        }
+      }
+      return result;
+    },
     queryAll() {
       this.allCardsInfo = this.saveData;
       this.cardlist = this.saveData.slice(0, 8);
       this.pagecount = Math.ceil(this.saveData.length / 8);
     },
     queryResult(name) {
-      var res = [];
-      for(let i = 0; i < this.allCardsInfo.length ; i++) {
-        if(this.allCardsInfo[i].name.indexOf(this.heroName) != -1){
+      const res = [];
+      for (let i = 0; i < this.allCardsInfo.length; i++) {
+        if (this.allCardsInfo[i].name.indexOf(this.heroName) != -1) {
           res.push(this.allCardsInfo[i]);
           continue;
         }
-        if(this.allCardsInfo[i].nickname.indexOf(this.heroName) != -1){
+        if (this.allCardsInfo[i].nickname.indexOf(this.heroName) != -1) {
           res.push(this.allCardsInfo[i]);
           continue;
         }
@@ -316,21 +316,21 @@ export default {
         // }
       }
       this.allCardsInfo = res.sort(this.compare(name));
-      this.cardlist = this.allCardsInfo.slice(0,8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length/8);
+      this.cardlist = this.allCardsInfo.slice(0, 8);
+      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
     },
     ObjecSort(name) {
-      if(!this.heroName) {
+      if (!this.heroName) {
         this.allCardsInfo = this.saveData;
       }
       this.allCardsInfo.sort(this.compare(name));
-      this.cardlist = this.allCardsInfo.slice(0,8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length/8);
+      this.cardlist = this.allCardsInfo.slice(0, 8);
+      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
     },
     compare(prop) {
       return function (obj1, obj2) {
-        var val1 = obj1[prop];
-        var val2 = obj2[prop];
+        let val1 = obj1[prop];
+        let val2 = obj2[prop];
         if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
           val1 = Number(val1);
           val2 = Number(val2);
@@ -339,45 +339,43 @@ export default {
           return -1;
         } else if (val1 > val2) {
           return 1;
-        } else {
-          return 0;
         }
-      }
+        return 0;
+      };
     },
     search() {
-      if(!this.heroName) {
+      if (!this.heroName) {
         this.queryAll();
       } else {
         this.queryResult('code');
       }
     },
     gotoCoinProfile(em) {
-
-      if(this.actionFlag){
-        this.$router.push({ path: `/item/${em.tokenId}/${em.code}`});
+      if (this.actionFlag) {
+        this.$router.push({ path: `/item/${em.tokenId}/${em.code}` });
       } else {
         Message.warning({
           message: '请到首页购买，或抽牌，谢谢!',
-          type: 'warning'
+          type: 'warning',
         });
       }
     },
-    getCardBack(){
+    getCardBack() {
       return `http://test.cdn.hackx.org/cardback/cardback_light.png`;
     },
-    getCardLightBack(){
+    getCardLightBack() {
       return `http://test.cdn.hackx.org/cardback/cardback.png`;
     },
-    lightShow: function(id) {
+    lightShow(id) {
       this.lightisShow[id] = true;
       this.$forceUpdate();
     },
-    lightunShow: function(id) {
+    lightunShow(id) {
       this.lightisShow[id] = false;
       this.$forceUpdate();
     },
-    clickCallback: function(pageNum) {
-      this.cardlist = this.allCardsInfo.slice((pageNum-1)*8,pageNum*8);
+    clickCallback(pageNum) {
+      this.cardlist = this.allCardsInfo.slice((pageNum - 1) * 8, pageNum * 8);
     },
     rankAfterClaim(snres) {
       // 0 failed, 1 success, 2 pending
@@ -386,22 +384,22 @@ export default {
       //   const result1 = await contract.checkSerialNumber(snres);
       //   console.error("claimres:"+result1)
       //   if (JSON.parse(result1)["data"]["status"] == 1) {
-        if (this.total >= 108) {
-          // console.error("claimres:"+JSON.parse(result1)["data"]["status"])
-          const formData = new FormData();
-          formData.append('address', this.address);
-          this.$http.post(this.$store.getters.getServerURL+'addrankshuihunas.php', formData)
-            .then((response) => {
-              const res = response.body;
-            });
-        }
+      if (this.total >= 108) {
+        // console.error("claimres:"+JSON.parse(result1)["data"]["status"])
+        const formData = new FormData();
+        formData.append('address', this.address);
+        this.$http.post(`${this.$store.getters.getServerURL}addrankshuihunas.php`, formData)
+          .then((response) => {
+            const res = response.body;
+          });
+      }
       // }, 30000);
-    }
+    },
   },
   created() {
-   /* for(var i=0;i<cardsInfo().length;i++){
+    /* for(var i=0;i<cardsInfo().length;i++){
       this.lightisShow[i] = false;
-    }*/
+    } */
     // console.log('created');
   },
   computed: {
