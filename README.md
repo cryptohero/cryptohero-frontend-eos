@@ -16,7 +16,7 @@ This project is a Vue.js project which changed to public on March 9, 2018. Fully
 
 # install dependencies
 
-yarn install
+yarn
 
 
 # serve with hot reload at localhost:8080

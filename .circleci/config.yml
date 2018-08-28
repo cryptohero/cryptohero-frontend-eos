@@ -25,7 +25,7 @@ jobs:
 
       - run:
           name: Install Dependencies
-          command: yarn install
+          command: yarn
 
       - save_cache:
           name: Save Yarn Package Cache
