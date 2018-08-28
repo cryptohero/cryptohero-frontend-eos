@@ -21,6 +21,15 @@ export default {
   SET_ME(state, me) {
     state.me = me;
   },
+  setScatter(state, scatter) {
+    state.scatter = scatter;
+    state.eos = scatter.eos(network, Eos, {});
+    state.identity = scatter.identity;
+    state.account = scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos');
+  },
+  setIdentity(state, identity) {
+    state.identity = identity;
+  },
   SET_SIGN_IN_ERROR(state, error) {
     state.signInError = error;
   },
@@ -31,8 +40,8 @@ export default {
     Vue.set(state.ads, id, ad);
   },
   my_card(state, cards) {
-    state.set(state.myCards,cards);
-  }
+    state.set(state.myCards, cards);
+  },
   /* Examples:
   [types.ADD_TO_CART](state, payload) {
     state.cart.push(payload);

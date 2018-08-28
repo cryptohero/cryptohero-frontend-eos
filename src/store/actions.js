@@ -17,6 +17,9 @@
 import * as api from '@/api';
 
 export default {
+  initScatter({ commit }, scatter) {
+    commit('setScatter', scatter);
+  },
   async initLocale({ commit }) {
     const locale = await api.getLocale();
     commit('setLocale', locale);
