@@ -36,8 +36,7 @@ import { mapState, mapGetters } from 'vuex';
 
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   asyncComputed: {
     async getCardsLeft() {
@@ -56,8 +55,8 @@ export default {
     ...mapState(['me']),
     ...mapGetters({
       eosClient: 'eos',
-      account_name: 'account_name'
-    })
+      account: 'account',
+    }),
     // displayCount() {
     //   return `${this.count} 张`;
     // },
@@ -74,20 +73,27 @@ export default {
     async draw() {
       const referrer = Cookie.get('referrer') || '';
       const amount = Number(
-        prompt('How much EOS you want to buy the credits?')
-      ).toFixed(4)
-      const {account_name} = this
-      this.eosClient
-        .transfer(account_name, 'cryptoherooo', `${amount} EOS`, 'draw')
-        .then(() => {
-          alert('转账成功')
-          return Promise.resolve(null)
-        })
-        .catch(err => {
-          alert(JSON.stringify(err))
-          aler('购买失败')
-          return Promise.reject(err)
-        })
+        prompt('How much EOS you want to buy the credits?'),
+      ).toFixed(4);
+      const { account } = this;
+      try {
+        if (amount <= 0) {
+          throw new Error('Invalid Amount of EOS');
+        }
+        await this.eosClient.transfer(
+          account.name,
+          'cryptoherooo',
+          `${amount} EOS`,
+          'draw',
+        );
+        alert('转账成功');
+      } catch (err) {
+        console.error(JSON.stringify(err));
+        switch (err.type) {
+          case 'signature_rejected': alert('You canceled the transfer'); break;
+          default: alert('购买失败');
+        }
+      }
 
       // if (result != 'cancel') {
       //   setTimeout(async () => {
@@ -117,7 +123,6 @@ export default {
       //   }, 20000);
       // }
     },
-
 
     async airdrop() {
       const contract = new Contract();
@@ -155,31 +160,29 @@ export default {
       //   }, 20000);
       // }
     },
-
-
   },
 };
 </script>
 
 <style scoped>
-#draw{
-    background: #ecdaa8;
-    border-radius: 8px;
+#draw {
+  background: #ecdaa8;
+  border-radius: 8px;
 }
 .buttons {
-    margin: 1rem;
+  margin: 1rem;
 }
 
-#login{
-    width: 100%;
-    height: 93px;
-    padding: 22px;
-    background-color: #ecdaa8;
-    font-size: 20px;
-    margin-bottom: 27px;
-    border-radius: 8px;
-  }
-#login a{
+#login {
+  width: 100%;
+  height: 93px;
+  padding: 22px;
+  background-color: #ecdaa8;
+  font-size: 20px;
+  margin-bottom: 27px;
+  border-radius: 8px;
+}
+#login a {
   color: brown;
 }
 </style>

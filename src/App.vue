@@ -11,13 +11,14 @@
 </template>
 
 <script>
-import { mapMutations, mapActions } from "vuex";
+import { mapMutations, mapActions } from 'vuex';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Cookie from 'js-cookie';
-import { networks } from "./config";
-const network = networks['kylin']
-const requiredFields = { accounts: [network] }
+import { networks } from './config';
+
+const network = networks.kylin;
+const requiredFields = { accounts: [network] };
 
 export default {
   name: 'App',
@@ -39,22 +40,22 @@ export default {
   },
   methods: {
     ...mapActions(['initScatter']),
-    handleScatterLoaded () {
-      const scatter = window.scatter
-      this.initScatter(scatter)
-      this.requestId()
+    handleScatterLoaded() {
+      const scatter = window.scatter;
+      this.initScatter(scatter);
+      this.requestId();
     },
-    async suggestNetworkSetting () {
+    async suggestNetworkSetting() {
       try {
-        await this.scatter.suggestNetwork(network)
+        await this.scatter.suggestNetwork(network);
       } catch (error) {
-        console.info('User canceled to suggestNetwork')
+        console.info('User canceled to suggestNetwork');
       }
     },
-    async requestId () {
-      await this.suggestNetworkSetting()
-      const identity = await scatter.getIdentity(requiredFields)
-    }
+    async requestId() {
+      await this.suggestNetworkSetting();
+      const identity = await scatter.getIdentity(requiredFields);
+    },
   },
 
 };

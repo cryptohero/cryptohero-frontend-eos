@@ -10,11 +10,11 @@ export default {
   SET_ME(state, me) {
     state.me = me;
   },
-  setScatter(state, scatter,) {
+  setScatter(state, scatter) {
     state.scatter = scatter;
     // state.eos = scatter.eos(network, Eos, {});
   },
-  
+
   SET_SIGN_IN_ERROR(state, error) {
     state.signInError = error;
   },
