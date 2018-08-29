@@ -1,0 +1,289 @@
+[
+    {
+        "tokenId": 12,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "朱仝",
+        "nickname": "美髯公",
+        "code": "12",
+        "front": "http://test.cdn.hackx.org/heros_new/12.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/12.jpeg",
+        "attack": 83,
+        "range": 15,
+        "defence": 40,
+        "star": "天满星",
+        "position": "马军八虎骑兼先锋使之四,征南大将军",
+        "arms": [
+            "九龙朝阳刀"
+        ],
+        "skills": [
+            "九凤回旋斩",
+            "十字纹斩"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 11,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "李应",
+        "nickname": "扑天雕",
+        "code": "11",
+        "front": "http://test.cdn.hackx.org/heros_new/11.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/11.jpeg",
+        "attack": 80,
+        "range": 30,
+        "defence": 25,
+        "star": "天富星",
+        "position": "粮食库大统领",
+        "arms": [
+            "铁嘴雕头枪",
+            "鹰尾飞刀"
+        ],
+        "skills": [
+            "鹰击长空",
+            "群鹰搏兔"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 10,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "柴进",
+        "nickname": "小旋风",
+        "code": "10",
+        "front": "http://test.cdn.hackx.org/heros_new/10.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/10.jpeg",
+        "attack": 78,
+        "range": 35,
+        "defence": 30,
+        "star": "天贵星",
+        "position": "内库房大统领",
+        "arms": [
+            "旋风无影剑"
+        ],
+        "skills": [
+            "旋风无影斩",
+            "旋风遁"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 9,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "花荣",
+        "nickname": "小李广",
+        "code": "9",
+        "front": "http://test.cdn.hackx.org/heros_new/9.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/9.jpeg",
+        "attack": 80,
+        "range": 80,
+        "defence": 65,
+        "star": "天英星",
+        "position": "马军八虎骑兼先锋使之首,龙骧大将军",
+        "arms": [
+            "雪山飞龙枪",
+            "天地日月弓",
+            "北斗七星箭"
+        ],
+        "skills": [
+            "冻神之刺",
+            "花吹雪之舞",
+            "星光四射"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 8,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "呼延灼",
+        "nickname": "双鞭",
+        "code": "8",
+        "front": "http://test.cdn.hackx.org/heros_new/8.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/8.jpeg",
+        "attack": 95,
+        "range": 35,
+        "defence": 65,
+        "star": "天威星",
+        "position": "五虎大将之合后大将",
+        "arms": [
+            "雌雄虎眼鞭",
+            "乌油七星铠",
+            "踢雪乌骓马"
+        ],
+        "skills": [
+            "呼延流-三十六路猛虎鞭法",
+            "连环甲马阵"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 7,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "秦明",
+        "nickname": "霹雳火",
+        "code": "7",
+        "front": "http://test.cdn.hackx.org/heros_new/7.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/7.jpeg",
+        "attack": 85,
+        "range": 20,
+        "defence": 65,
+        "star": "天猛星",
+        "position": "五虎大将之先锋大将",
+        "arms": [
+            "狼牙烽火棒"
+        ],
+        "skills": [
+            "烈焰霹雳",
+            "狼牙扫千军",
+            "红莲之咆吼"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 6,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "林冲",
+        "nickname": "豹子头",
+        "code": "6",
+        "front": "http://test.cdn.hackx.org/heros_new/6.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/6.jpeg",
+        "attack": 95,
+        "range": 20,
+        "defence": 60,
+        "star": "天雄星",
+        "position": "五虎大将之右军大将",
+        "arms": [
+            "寒星冷月枪"
+        ],
+        "skills": [
+            "寒星夺魄刺",
+            "冷月索命舞",
+            "忧郁飞花"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 5,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "关胜",
+        "nickname": "大刀",
+        "code": "5",
+        "front": "http://test.cdn.hackx.org/heros_new/5.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/5.jpeg",
+        "attack": 88,
+        "range": 20,
+        "defence": 65,
+        "star": "天勇星",
+        "position": "五虎大将之左军大将",
+        "arms": [
+            "青龙偃月刀",
+            "赤兔马"
+        ],
+        "skills": [
+            "拖刀计",
+            "霸严冥动斩",
+            "风翔九天"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 4,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "公孙胜",
+        "nickname": "入云龙",
+        "code": "4",
+        "front": "http://test.cdn.hackx.org/heros_new/4.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/4.jpeg",
+        "attack": 95,
+        "range": 99,
+        "defence": 6,
+        "star": "天闲星",
+        "position": "副军师",
+        "arms": [
+            "松纹古铜七星剑"
+        ],
+        "skills": [
+            "苍龙追月",
+            "紫气东来"
+        ],
+        "special": [
+            "奇门遁甲",
+            "风货雷动"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 3,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "吴用",
+        "nickname": "智多星",
+        "code": "3",
+        "front": "http://test.cdn.hackx.org/heros_new/3.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/3.jpeg",
+        "attack": 90,
+        "特殊·": "并使他人攻击力加倍",
+        "range": 90,
+        "defence": 5,
+        "star": "天机星",
+        "position": "正军师",
+        "arms": [
+            "八门玄机链",
+            "孔明密传羽扇"
+        ],
+        "skills": [
+            "八门金锁阵",
+            "银河万丈"
+        ],
+        "special": [
+            "移天换日",
+            "河洛璇玑"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 2,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "卢俊义",
+        "nickname": "玉麒麟",
+        "code": "2",
+        "front": "http://test.cdn.hackx.org/heros_new/2.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/2.jpeg",
+        "attack": 98,
+        "range": 55,
+        "defence": 50,
+        "star": "star",
+        "position": "总督兵马副元帅",
+        "arms": [
+            "麒麟黄金矛",
+            "麒麟黄金甲",
+            "麒麟兽（宝马）"
+        ],
+        "skills": [
+            "麒麟碎天破",
+            "堕星闪"
+        ],
+        "price": "1e+22"
+    },
+    {
+        "tokenId": 1,
+        "claimed": "__vue_devtool_undefined__",
+        "name": "宋江",
+        "nickname": "呼保义",
+        "code": "1",
+        "front": "http://test.cdn.hackx.org/heros_new/1.jpeg",
+        "back": "http://test.cdn.hackx.org/backs_new/1.jpeg",
+        "attack": 80,
+        "range": 100,
+        "defence": 20,
+        "star": "天魁星",
+        "position": "总督兵马大元帅",
+        "arms": [
+            "日月星辰旗",
+            "混元河洛图"
+        ],
+        "skills": [
+            "风云际会",
+            "玄天混元阵"
+        ],
+        "price": "1e+22"
+    }
+]

@@ -39,6 +39,7 @@
 <script>
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import ItemList from '@/components/ItemList';
+import fakeCardData from "./fakeCardData.json";
 import { toReadablePrice } from '@/util';
 import Contract from '@/contract/cryptohero';
 
@@ -59,43 +60,43 @@ export default {
 
   computed: {},
   asyncComputed: {
-    async getBalance() {
-      const idol = new Contract();
-      const result = await idol.getBalance();
-      return JSON.parse(result) || 0;
-    },
-    async getTotalEarnByShareAllUser() {
-      const idol = new Contract();
-      const result = await idol.getTotalEarnByShareAllUser();
-      return JSON.parse(result) || 0;
-    },
-    async getTotalEarnByReferenceAllUser() {
-      const idol = new Contract();
-      const result = await idol.getTotalEarnByReferenceAllUser();
-      return JSON.parse(result) || 0;
-    },
+    // async getBalance() {
+    //   const idol = new Contract();
+    //   const result = await idol.getBalance();
+    //   return JSON.parse(result) || 0;
+    // },
+    // async getTotalEarnByShareAllUser() {
+    //   const idol = new Contract();
+    //   const result = await idol.getTotalEarnByShareAllUser();
+    //   return JSON.parse(result) || 0;
+    // },
+    // async getTotalEarnByReferenceAllUser() {
+    //   const idol = new Contract();
+    //   const result = await idol.getTotalEarnByReferenceAllUser();
+    //   return JSON.parse(result) || 0;
+    // },
 
   },
   async created() {
-    const contrat = new Contract();
-    const total = await contrat.getTotalSupply();
-    if (total === 0) {
-      this.loading = false;
-      return;
-    }
-    const ids = [];
-    const start = total - 12;
-    for (let i = total; i >= start; --i) {
-      ids.push(i);
-    }
-    /*   let ids = [];
-    for (let i = 12; i > 0 ; --i) {
-      ids.push(i);
-    } */
-    // 通过tokenId图片相关信息
-    //    const result = await contrat.getCarInfoByTokenId(itemIds);
-    const result = await contrat.getCarInfoByTokenId(ids);
-    this.itemIds = result;
+    // const contrat = new Contract();
+    // const total = 12;
+    // if (total === 0) {
+    //   this.loading = false;
+    //   return;
+    // }
+    // const ids = [];
+    // const start = total - 12;
+    // for (let i = total; i >= start; --i) {
+    //   ids.push(i);
+    // }
+    // /*   let ids = [];
+    // for (let i = 12; i > 0 ; --i) {
+    //   ids.push(i);
+    // } */
+    // // 通过tokenId图片相关信息
+    // //    const result = await contrat.getCarInfoByTokenId(itemIds);
+    // const result = await contrat.getCarInfoByTokenId(ids);
+    this.itemIds = fakeCardData;
     this.loading = false;
   },
 
