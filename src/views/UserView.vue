@@ -16,7 +16,9 @@
     </div><br>
       <div class="">
         <h2 class="title" style="color: aliceblue"> {{profile.nickname}} {{$t('Collect')}} </h2>
-        <p class="useraddress">{{$t('Content4')}}{{total}} / 108 {{$t('CardUnit')}} | {{$t('ownerCards')}}：{{allCardsCount}} {{$t('CardUnit')}}<el-button id="btn" type="success" round @click.native="claim()">{{$t('Finished')}}</el-button> </p>
+        <p class="useraddress">
+          {{$t('Content4')}}{{total}} / 108 {{$t('CardUnit')}} | {{$t('ownerCards')}}：{{allCardsCount}} {{$t('CardUnit')}}
+          <el-button id="btn" type="success" round @click.native="claim()">{{$t('Finished')}}</el-button> </p>
         <p class="useraddress"> {{$t('key')}} {{address}}</p>
       </div>
     </div>
@@ -34,12 +36,17 @@
                 <option value="price">{{$t('Sort3')}}</option>
               </select>
             </div>
-            <el-button  style="margin: 5px" type="error" plain @click.native="NotClection()">{{$t('UnCollected')}}</el-button>
-            <el-button  style="margin: 5px" type="info" plain @click.native="HadClection()">{{$t('Collected')}}</el-button>
-              <div class="btn-item"><el-button type="primary" plain @click.native="AllClection()">{{$t('AllSet')}}</el-button></div>
+            <el-button  style="margin: 5px" type="error" plain @click.native="NotClection()">
+              {{$t('UnCollected')}}</el-button>
+            <el-button  style="margin: 5px" type="info" plain @click.native="HadClection()">
+              {{$t('Collected')}}</el-button>
+              <div class="btn-item">
+                <el-button type="primary" plain @click.native="AllClection()">{{$t('AllSet')}}</el-button>
+            </div>
             </div>
             <div class="btn-item" style="display: flex">
-            <el-input placeholder="请输入卡牌名称" prefix-icon="el-icon-search" v-model="heroName" @keyup.enter.native="search()"></el-input>
+            <el-input placeholder="请输入卡牌名称" prefix-icon="el-icon-search" 
+            v-model="heroName" @keyup.enter.native="search()" />
             </div>
           </div>
         </div>
@@ -49,16 +56,25 @@
      <!--</div>-->
       </div>
    <div class="button-search">
-     <div class="btn-item"  v-show="actionFlag"><el-button type="primary" plain @click.native="ObjecSort('code')">{{$t('Sort1')}}</el-button></div>
-     <div class="btn-item"  v-show="actionFlag"><el-button type="success" plain @click.native="ObjecSort('tokenId')">{{$t('Sort2')}}</el-button></div>
-     <div class="btn-item"  v-show="actionFlag"><el-button type="warning" plain @click.native="ObjecSort('price')">{{$t('Sort3')}}</el-button> </div>
+     <div class="btn-item"  v-show="actionFlag">
+       <el-button type="primary" plain @click.native="ObjecSort('code')">{{$t('Sort1')}}</el-button></div>
+     <div class="btn-item"  v-show="actionFlag">
+       <el-button type="success" plain @click.native="ObjecSort('tokenId')">{{$t('Sort2')}}</el-button></div>
+     <div class="btn-item"  v-show="actionFlag">
+       <el-button type="warning" plain @click.native="ObjecSort('price')">{{$t('Sort3')}}</el-button> </div>
      <div class="btn-item" style="display: flex">
        <el-input :placeholder="$t('Reminder')" prefix-icon="el-icon-search" v-model="heroName" @keyup.enter.native="search()"></el-input>
     <!--<el-button type="primary" icon="el-icon-search" @click="search()">搜索</el-button>-->
      </div>
-     <div class="btn-item"><el-button type="error" plain @click.native="NotClection()">{{$t('UnCollected')}}</el-button></div>
-     <div class="btn-item"><el-button type="info" plain @click.native="HadClection()">{{$t('Collected')}}</el-button></div>
-     <div class="btn-item"><el-button type="primary" plain @click.native="AllClection()">{{$t('AllSet')}}</el-button></div>
+     <div class="btn-item">
+       <el-button type="error" plain @click.native="NotClection()">{{$t('UnCollected')}}</el-button>
+       </div>
+     <div class="btn-item">
+       <el-button type="info" plain @click.native="HadClection()">{{$t('Collected')}}</el-button>
+       </div>
+     <div class="btn-item">
+       <el-button type="primary" plain @click.native="AllClection()">{{$t('AllSet')}}</el-button>
+       </div>
 
   </div>
 

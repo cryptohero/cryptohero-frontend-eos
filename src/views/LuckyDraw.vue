@@ -8,9 +8,11 @@
               .hero-body
                   .container
                       h1.title| {{$t('H1Title1')}}
+                      h2.subtitle| 一般人我都不告诉他：金额越高卡牌越多哦
                       el-form(:inline="true" :model="null" class="demo-form-inline")
                         el-form-item(label="购买金额")
-                          el-input-number(v-model="amount" label="EOS" :precision="4" :step="0.0001") | EOS
+                          el-input-number(v-model="amount" label="EOS" :precision="4" :step="0.0001")
+                          span| EOS
                         el-form-item()
                           el-button(type="danger" @click="draw")| 梭哈
                       //- h2.subtitle| {{$t('H2Title1')}} {{getCardsLeft}} {{$t('H2Title2')}}
@@ -35,6 +37,7 @@
 
 <script>
 import Cookie from 'js-cookie';
+import { Notification } from 'element-ui';
 import Contract from '@/contract/cryptohero';
 import { BigNumber } from 'bignumber.js';
 import { mapState, mapGetters } from 'vuex';
@@ -90,12 +93,27 @@ export default {
           `${amount} EOS`,
           'draw',
         );
-        alert('购买抽卡福袋成功');
+        Notification.success({
+          title: '购买交易成功',
+          message: '系统稍后将会揭晓抽奖结果',
+          duration: 0,
+        });
       } catch (err) {
-        console.error(JSON.stringify(err));
         switch (err.type) {
-          case 'signature_rejected': alert('You canceled the transfer'); break;
-          default: alert('购买失败');
+          case 'signature_rejected':
+            Notification.error({
+              title: '购买失败',
+              message: '你拒绝了交易签名',
+              duration: 0,
+            });
+            break;
+          default: {
+            Notification.error({
+              title: '购买失败',
+              message: err.message || JSON.stringify(err),
+              duration: 0,
+            });
+          }
         }
       }
 
@@ -172,6 +190,7 @@ export default {
 #draw {
   background: #ecdaa8;
   border-radius: 8px;
+  text-align: center;
 }
 .buttons {
   margin: 1rem;
