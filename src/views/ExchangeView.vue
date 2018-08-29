@@ -229,11 +229,11 @@ export default {
     queryResult(name) {
       const res = [];
       for (let i = 0; i < this.itemIds.length; i++) {
-        if (this.itemIds[i].name.indexOf(this.heroName) != -1) {
+        if (this.itemIds[i].name.indexOf(this.heroName) !== -1) {
           res.push(this.itemIds[i]);
           continue;
         }
-        if (this.itemIds[i].nickname.indexOf(this.heroName) != -1) {
+        if (this.itemIds[i].nickname.indexOf(this.heroName) !== -1) {
           res.push(this.itemIds[i]);
           continue;
         }

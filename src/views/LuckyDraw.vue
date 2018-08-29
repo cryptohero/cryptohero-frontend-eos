@@ -117,7 +117,7 @@ export default {
         }
       }
 
-      // if (result != 'cancel') {
+      // if (result !== 'cancel') {
       //   setTimeout(async () => {
       //     const result1 = await contract.checkSerialNumber(result);
       //     if (JSON.parse(result1).data.status == 1) {
@@ -154,7 +154,7 @@ export default {
       const result = await contract.airdrop(referrer, this.getDisplayTotal);
       console.log(`crytpresp00:${result}`);
 
-      // if (result != 'cancel') {
+      // if (result !== 'cancel') {
       //   setTimeout(async () => {
       //     const result1 = await contract.checkSerialNumber(result);
       //     if (JSON.parse(result1).data.status == 1) {

@@ -45,7 +45,7 @@
             </div>
             </div>
             <div class="btn-item" style="display: flex">
-            <el-input placeholder="请输入卡牌名称" prefix-icon="el-icon-search" 
+            <el-input placeholder="请输入卡牌名称" prefix-icon="el-icon-search"
             v-model="heroName" @keyup.enter.native="search()" />
             </div>
           </div>
@@ -293,7 +293,7 @@ export default {
       }
       const contract = new LinkIdol();
       const result = await contract.claim();
-      if (result != 'cancel') {
+      if (result !== 'cancel') {
         this.rankAfterClaim(result);
       }
     },
@@ -303,7 +303,7 @@ export default {
     unique(arr) {
       let result = [],
         hash = {};
-      for (let i = 0, elem; (elem = arr[i]) != null; i++) {
+      for (let i = 0, elem; (elem = arr[i]) !== null; i++) {
         if (!hash[elem]) {
           result.push(elem);
           hash[elem] = true;
@@ -319,11 +319,11 @@ export default {
     queryResult(name) {
       const res = [];
       for (let i = 0; i < this.allCardsInfo.length; i++) {
-        if (this.allCardsInfo[i].name.indexOf(this.heroName) != -1) {
+        if (this.allCardsInfo[i].name.indexOf(this.heroName) !== -1) {
           res.push(this.allCardsInfo[i]);
           continue;
         }
-        if (this.allCardsInfo[i].nickname.indexOf(this.heroName) != -1) {
+        if (this.allCardsInfo[i].nickname.indexOf(this.heroName) !== -1) {
           res.push(this.allCardsInfo[i]);
           continue;
         }
