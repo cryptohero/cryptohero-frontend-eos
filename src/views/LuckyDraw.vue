@@ -24,19 +24,6 @@
                   a.button.is-primary(@click="setQty(128)")|{{$t('Draw')}} 128 {{$t('CardUnit')}}
                   a.button.is-primary(@click="setQty(1024)")|{{$t('Draw')}} 1024 {{$t('CardUnit')}}
                   <br>
-                  //  a.button.is-primary(@click="airdrop")|{{$t('赠送')}}
-
-            //- .container
-              .columns
-                .column
-                  section.hero
-                    .hero-body
-                        .containers
-                            h2.subtitle| {{$t('H2Content1')}}
-                            h1.title| {{getDisplayTotal}} NAS
-                            h2.subtitle| {{$t('H2Content2')}}
-                .column
-                      button.button.is-primary.is-large(@click="draw")| {{$t('Fight')}}
 
 
 </template>
@@ -97,9 +84,7 @@ export default {
       const contract = new Contract();
       const referrer = Cookie.get('referrer') || '';
 
-      // console.log("crytpresp:"+referrer);
       const result = await contract.draw(referrer, this.getDisplayTotal);
-      // console.log("crytpresp00:"+result);
 
       if (result != 'cancel') {
         setTimeout(async () => {

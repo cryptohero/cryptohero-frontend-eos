@@ -29,9 +29,6 @@ export default class LinkIdolContract extends Contract {
     super({
       contractAddress: 'n1gDfiiQLEBu95xDWHGxNi4qToyXjD2vE4D',
       network: 'mainnet',
-      // n1xr5fRAuKVQ9ZQFj2LQ3yrd5V2NKWqj6hp n22RPbrx2HQLyz933nyFNWmrvKUvH8xesRy n1gwhEts7zLJhNQHawgZfkkygofhhX1vrZG
-      // contractAddress: 'n1tMAfxPSuzvwANukUXdG5Rw98zPoS7HjKx',
-      // network: 'testnet',
     });
   }
   getCardInfoByHeroId(id, tkId, prices, claim) {
@@ -58,19 +55,6 @@ export default class LinkIdolContract extends Contract {
       args: [referrer],
     }).then(console.info);
 
-    // async airdrop (referrer = '', value) {
-    //   const t = this.call({
-    //     functionName: ' airdrop',
-    //     value: new BigNumber(value).times(1000000000000000000).toString(),
-    //     args: [referrer],
-    //   }).then(console.info);
-    // console.log(`call return:${t}`);
-    // const result = await this.send(
-    //   {
-    //     functionName: 'multiDraw',
-    //     value,
-    //     data: [referrer],
-    //   });
     return new Promise((resolve) => {
       const result = this.send(
         {

@@ -77,9 +77,6 @@ export default {
 
   },
   async created() {
-    //    this.total = await getTotal();这里去监听了eth合约
-    //    const itemIds = await getItemIds(0, this.total);
-    //    const itemIds = await getItemIds(0, 0);
     const contrat = new Contract();
     const total = await contrat.getTotalSupply();
     if (total === 0) {

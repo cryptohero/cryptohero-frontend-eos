@@ -36,12 +36,6 @@ export default {
     });
   },
   computed: {
-    // key() {
-    //   const { $route } = this
-    //   return $route.name !== undefined
-    //     ? $route.name + +new Date()
-    //     : $route + +new Date();
-    // },
   },
   methods: {
     ...mapActions(['initScatter']),

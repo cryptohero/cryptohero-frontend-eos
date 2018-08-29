@@ -60,16 +60,6 @@ export default {
     }
   },
 
-  // async getTotalEarnByShare() {
-  //   const idol = new LinkIdol();
-  //   const result = await idol.getTotalEarnByShare(this.address);
-  //   return JSON.parse(result)||0;
-  // },
-  // async getTotalEarnByReference() {
-  //   const idol = new LinkIdol();
-  //   const result = await idol.getTotalEarnByReference(this.address);
-  //   return JSON.parse(result)||0;
-  // },
 
   methods: {
     compare(prop) {
