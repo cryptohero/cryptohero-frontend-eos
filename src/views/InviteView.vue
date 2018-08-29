@@ -92,7 +92,7 @@ export default {
   computed: {
     ...mapGetters(['account']),
     me() {
-      return this.account.name
+      return this.account.name;
     },
     myRefferalLink() {
       const website = 'https://eos.cryptohero.pro/#';

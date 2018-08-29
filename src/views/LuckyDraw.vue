@@ -18,7 +18,7 @@
                       //- h1.title| {{ getPrice }} NAS / {{$t('CardUnit')}}
             .container
                 .buttons(style="width: 18rem")
-                  //- a.button.is-primary(@click="draw")| 
+                  //- a.button.is-primary(@click="draw")|
                   //- a.button.is-primary(@click="setQty(3)")|{{$t('Draw')}} 3 {{$t('CardUnit')}}
                   //- a.button.is-primary(@click="setQty(6)")|{{$t('Draw')}} 6 {{$t('CardUnit')}}
                   //- a.button.is-primary(@click="setQty(9)")|{{$t('Draw')}} 9 {{$t('CardUnit')}}
@@ -42,7 +42,7 @@ import { mapState, mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      amount: 0.0001
+      amount: 0.0001,
     };
   },
   asyncComputed: {

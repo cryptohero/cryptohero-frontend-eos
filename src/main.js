@@ -5,7 +5,7 @@ import vueConfig from 'vue-config';
 import VueLazyload from 'vue-lazyload';
 import AsyncComputed from 'vue-async-computed';
 import VueResource from 'vue-resource';
-import Element from "element-ui";
+import Element from 'element-ui';
 import * as config from '@/config';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App';

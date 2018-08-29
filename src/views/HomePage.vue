@@ -39,7 +39,7 @@
 <script>
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import ItemList from '@/components/ItemList';
-import fakeCardData from "./fakeCardData.json";
+import fakeCardData from './fakeCardData.json';
 import { toReadablePrice } from '@/util';
 import Contract from '@/contract/cryptohero';
 
