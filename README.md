@@ -1,5 +1,7 @@
 # CryptoHero-EOS
 
+![](https://i.loli.net/2018/08/29/5b86844d8345c.png)
+
 [![Join our Telegram](https://icon-icons.com/icons2/555/PNG/32/telegram_icon-icons.com_53603.png)](https://t.me/CryptoHero_Official)
 [![Join our Discord](https://www.shareicon.net/data/32x32/2016/12/30/866945_game_512x512.png)](https://discord.gg/nMXUYGQ)
 
