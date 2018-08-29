@@ -1,9 +1,7 @@
 // https://vuex.vuejs.org/en/mutations.html
-import { networks } from "../config";
 
 
 import Vue from 'vue';
-import Eos from "eosjs";
 
 export default {
   setLocale(state, locale) {
