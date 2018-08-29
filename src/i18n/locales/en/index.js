@@ -47,8 +47,8 @@ module.exports = {
   NoMetaMaskMsg: 'You can only play me on a desktop browser like Chrome or Firefox.',
   LoginOKTitle: 'Welcome Back!',
   LoginOKMsg: 'Click Here to see your collection',
-  Content1: 'Please login with Nebulas wallet.',
-  Content2: 'GitHub address',
+  Content1: 'Please login with EOS wallet.',
+  Content2: 'Scatter Homepage',
   Content3: 'Can\'t access your wallet interface, please log in and draw a card.',
   H1Title1: 'Lucky draw card',
   H2Title1: 'Current card pool pumpable quantity:',
@@ -91,5 +91,5 @@ module.exports = {
   TotalBonus: 'Total Bonus(nas)：',
   TotalRecommendRebate: 'Total Recommend Rebate(nas)：',
   AllSet: 'All of Set',
-  Recomment: '"NebulasHero" is a block chain game with card collection based on "The Water Margin" which is one of China\'s four famous books. The total number of cards is 21,000,000, which has been written into smart contract. Every card is unique and every transaction can be checked in the chain. When the player purchases the card, he or she will owns the card and can freely trade and resell it. The player who collects 108 heroes of NebulasHero will win a rich award.',
+  Recomment: '"EOSHero" is a block chain game with card collection based on "The Water Margin" which is one of China\'s four famous books. The total number of cards is 21,000,000, which has been written into smart contract. Every card is unique and every transaction can be checked in the chain. When the player purchases the card, he or she will owns the card and can freely trade and resell it. The player who collects 108 heroes of EOSHero will win a rich award.',
 };
