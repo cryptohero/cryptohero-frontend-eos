@@ -61,13 +61,13 @@ jobs:
           name: Deploy to Github Pages
           command: |
             cd ./dist/dist 
-            git config --global user.email "bot@frankwei.xyz"
+            git config --global user.email "bot@andoromeda.io"
             git config --global user.name "Circle CI Deploy Bot"
             echo "eos.cryptohero.pro" >> CNAME # add custom domain
             git init
             git add .
             git commit -m "Update website"
-            git push --force --quiet git@github.com:Andoromeda-Foundation/cryptohero-nas-site.git master:master
+            git push --force --quiet git@github.com:cryptohero/cryptohero-eos-site.git master:master
   deploy-testing:
     <<: *defaults
     steps:
@@ -81,7 +81,7 @@ jobs:
             sudo npm i -g surge          
             cd ./dist/dist/
             # echo "testing.cryptohero.pro" >> CNAME # add custom domain
-            surge --project ./ --domain nas-test.cryptohero.pro
+            surge --project ./ --domain eos.dev.cryptohero.pro
 
 
 workflows:

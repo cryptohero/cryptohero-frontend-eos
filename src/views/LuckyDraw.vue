@@ -12,7 +12,7 @@
                         el-form-item(label="购买金额")
                           el-input-number(v-model="amount" label="EOS" :precision="4" :step="0.0001") | EOS
                         el-form-item()
-                          el-button(type="danger" @click="draw")| 我买了！
+                          el-button(type="danger" @click="draw")| 梭哈
                       //- h2.subtitle| {{$t('H2Title1')}} {{getCardsLeft}} {{$t('H2Title2')}}
                       //- h2.subtitle| {{$t('H2Title3')}}
                       //- h1.title| {{ getPrice }} NAS / {{$t('CardUnit')}}
