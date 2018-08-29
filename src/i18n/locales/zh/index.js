@@ -61,7 +61,7 @@ module.exports = {
   Content1: '请使用 EOS 钱包登录',
   Content2: 'Scatter 地址',
   Content3: '无法访问你的钱包接口，请登录后抽卡',
-  H1Title1: '幸运抽卡',
+  H1Title1: '客官要花多少柚子 (EOS) 来购买幸运卡福袋呢？',
   H2Title1: '目前卡池可抽数量：',
   H2Title2: '张，卡牌限量，先到先得',
   H2Title3: '目前抽卡费',

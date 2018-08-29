@@ -30,7 +30,7 @@
           <div class="transform"> {{$t('airdrop')}} </div>
         </router-link> -->
         <router-link class="navbar-item"
-                     :to="{ name: 'InviteVie'}">
+                     :to="{ name: 'InviteView'}">
           <div class="transform">{{$t('FAQs')}}</div>
         </router-link>
 

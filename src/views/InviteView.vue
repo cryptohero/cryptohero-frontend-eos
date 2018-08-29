@@ -64,7 +64,7 @@
 <script>
 import Clipboard from 'clipboard';
 import Contract from '@/contract/cryptohero';
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   created() {
@@ -90,9 +90,12 @@ export default {
     },
   },
   computed: {
-    ...mapState(['me']),
+    ...mapGetters(['account']),
+    me() {
+      return this.account.name
+    },
     myRefferalLink() {
-      const website = 'https://nas.cryptohero.pro/#';
+      const website = 'https://eos.cryptohero.pro/#';
       this.getuserinvitelist();
       if (this.me) {
         return `${website}/draw?ref=${this.me}`;

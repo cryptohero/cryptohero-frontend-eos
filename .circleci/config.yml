@@ -63,7 +63,7 @@ jobs:
             cd ./dist/dist 
             git config --global user.email "bot@frankwei.xyz"
             git config --global user.name "Circle CI Deploy Bot"
-            echo "nas.cryptohero.pro" >> CNAME # add custom domain
+            echo "eos.cryptohero.pro" >> CNAME # add custom domain
             git init
             git add .
             git commit -m "Update website"

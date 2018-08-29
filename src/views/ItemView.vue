@@ -349,9 +349,9 @@ export default {
       const QRCode = require('qrcode');
       const thiz = this;
       //      const links =window.location.host+'/#/Recommend/'+ this.$route.params.code + '/'+ num  ; //待完善
-      const links = `https://nas.cryptohero.pro/#/Recommend/${this.$route.params.code}/${num}`;
+      const links = `https://eos.cryptohero.pro/#/Recommend/${this.$route.params.code}/${num}`;
       //      const links = `http://test.cdn.hackx.org/heros_new/${this.$route.params.code}.jpeg`
-      //      const  links = `https://nas.cryptohero.pro/#/Recommend/42/0`;
+      //      const  links = `https://eos.cryptohero.pro/#/Recommend/42/0`;
 
       QRCode.toDataURL(links, (err, url) => {
         thiz.uri = url;
