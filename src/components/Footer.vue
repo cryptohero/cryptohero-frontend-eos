@@ -29,13 +29,14 @@
         <div class="column is-4">
           <div class="content">
             <span> {{$t('Contact Us')}}</span>
-            <p><a href="https://t.me/Nebulashero"
+            <p>
+            <a href="https://t.me/Nebulashero"
                target="_blank">
-              @Telegram Channel
-            </a></p>
-            <p><a href="https://discord.gg/MK5GhPn"
+              <i class="iconfont icon-telegram"></i>
+            </a>
+            <a href="https://discord.gg/MK5GhPn"
                target="_blank">
-              @Discord
+              <i class="iconfont icon-Discord"></i>
             </a></p>
             <p>Wechat Group: add wechat friend "X71tel"</p>
           </div>
@@ -54,8 +55,18 @@
   </footer>
 </template>
 <style scoped>
+@import url("https://at.alicdn.com/t/font_814713_rk2ayl74l9q.css");
 .footer {
-    background-color: #ecdaa8;
-    color: #2d120ee0;
+    background-color: #000;
+    color: #ecdaa8;
+}
+.navbar-item {
+  color: #ecdaa8;
+}
+.iconfont {
+  font-size: 2rem;
+}
+.icon-Discord {
+  color: #7289da
 }
 </style>

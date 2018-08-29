@@ -25,10 +25,10 @@
                      :to="{ name: 'User', params:{address: me}}">
           <div class="transform">{{$t('My Cards')}}</div>
         </router-link>
-         <router-link class="navbar-item"
+         <!-- <router-link class="navbar-item"
                      :to="{ name: 'AirDrop'}">
           <div class="transform"> {{$t('airdrop')}} </div>
-        </router-link>
+        </router-link> -->
         <router-link class="navbar-item"
                      :to="{ name: 'InviteVie'}">
           <div class="transform">{{$t('FAQs')}}</div>
@@ -38,14 +38,14 @@
                      :to="{ name: 'RankingList'}">
           <div class="transform">{{$t('Ranking')}}</div>
         </router-link>
-        <router-link class="navbar-item"
+        <!-- <router-link class="navbar-item"
                      :to="{ name: 'Exchange'}">
           <div class="transform"> {{$t('Exchange')}}</div>
         </router-link>
         <router-link class="navbar-item"
                      :to="{ name: 'FAQ'}">
           <div class="transform"> {{$t('faq')}} </div>
-        </router-link>
+        </router-link> -->
 
         <!-- <router-link class="navbar-item"
                      :to="{ name: 'BirthdayGift'}">
@@ -137,7 +137,7 @@ export default {
     margin-left: 20px;
     height: 31px;
     transform: skew(-20deg);
-    background: linear-gradient(#dcb84f60, #89540d60);
+    background: linear-gradient(#936015, #d1ab46);
     font-size: 12px;
 }
 .transform{

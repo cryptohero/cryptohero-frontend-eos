@@ -33,7 +33,7 @@ module.exports = {
   BirthdayGift: '智取生辰纲(HOT)',
   'Terms of Service': '使用条款',
   'Privacy Policy': '隐私政策',
-  'Contact Us': '联系我们',
+  'Contact Us': '加入我们的 Telegram / Discord / 微信社群',
   Slogan: '标语',
   EDIT_SLOGAN_TIP: '购买此卡后，您可以编辑标语。',
   'Edit Slogan': '编辑标语',

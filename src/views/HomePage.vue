@@ -14,7 +14,7 @@
 				 <div class="cardbtn">
 				  	<a> <img class="btnimg" @click="drawClicked()" width="150" alt="" srcset="/static/assets/btn.png"/> </a>
          </div>
-        <div class="price">
+        <!-- <div class="price">
           <div class="price1">
             <b>{{$t('CurrentContractBalance')}}{{this.getBalance}}</b>
           </div>
@@ -24,7 +24,7 @@
           <div class="price1">
             <b>{{$t('TotalRecommendRebate')}}{{this.getTotalEarnByReferenceAllUser}}</b>
           </div>
-        </div>
+        </div> -->
           <div class="txt">
         <span>{{$t('Recomment')}}</span>
         </div>

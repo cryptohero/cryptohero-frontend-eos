@@ -18,7 +18,7 @@ module.exports = {
   BirthdayGift: 'Birthday Tribute(HOT)',
   'Terms of Service': 'Terms',
   'Privacy Policy': 'Privacy',
-  'Contact Us': 'Contact',
+  'Contact Us': 'Join our community',
   Slogan: 'Slogan',
   UPDATE_SLOGAN_PROMPT: 'Please enter your slogan (Up to 100 characters):',
   UPDATE_SLOGAN_FAIL_TOO_LOOG_MSG: 'The slogan can only be 100 characters long.',
