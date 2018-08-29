@@ -1,9 +1,9 @@
 <template>
   <header>
-    <img class="logo_big" src="/static/assets/big_logo.png">
+    <img class="logo_big" src="https://cryptohero.pro/static/logo.png">
     <nav class="navbar is-light">
       <div class="navbar-brand">
-        <img  class="logo" src="/static/assets/logo.png">
+        <img  class="logo" src="https://cryptohero.pro/static/logo.png">
 
         <router-link class="navbar-item ff" style={opacity:0.5}
                      :to="{ name: 'Home'}">

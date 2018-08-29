@@ -8,7 +8,7 @@
   	 <section>
 		  <div class="cardContainer">
 			 <div class="cardcharas">
-				 <img class="charaimg" alt="" srcset="/static/assets/big_logo.png"/>
+				 <img class="charaimg" alt="" srcset="https://cryptohero.pro/static/big-logo.png"/>
 			 </div>
 		 	<div class="btnContainer">
 				 <div class="cardbtn">
