@@ -7,9 +7,9 @@ export default {
   setLocale(state, locale) {
     state.locale = locale;
   },
-  SET_ME(state, me) {
-    state.me = me;
-  },
+  // SET_ME(state, me) {
+  //   state.me = me;
+  // },
   setScatter(state, scatter) {
     state.scatter = scatter;
     // state.eos = scatter.eos(network, Eos, {});

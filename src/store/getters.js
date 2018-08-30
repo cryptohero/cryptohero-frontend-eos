@@ -12,5 +12,6 @@ export default {
   getContractNet: () => 'mainnet',
   identity: ({ scatter }) => scatter.identity || null,
   account: ({ scatter }) => scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos') || null,
+  me: ({ scatter }) => scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos').name || null,
   eos: ({ scatter, network }) => scatter.eos(networks[network], Eos, {}) || null,
 };
