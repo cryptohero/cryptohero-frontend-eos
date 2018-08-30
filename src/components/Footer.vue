@@ -30,11 +30,11 @@
           <div class="content">
             <span> {{$t('Contact Us')}}</span>
             <p>
-            <a href="https://t.me/Nebulashero"
+            <a href="https://t.me/joinchat/HnyfLBIu5MLCbzGcUvny3g"
                target="_blank">
               <i class="iconfont icon-telegram"></i>
             </a>
-            <a href="https://discord.gg/MK5GhPn"
+            <a href="https://discord.gg/xmgnpsV"
                target="_blank">
               <i class="iconfont icon-Discord"></i>
             </a></p>
