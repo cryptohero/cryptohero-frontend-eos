@@ -15,9 +15,8 @@ import { mapMutations, mapActions } from 'vuex';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Cookie from 'js-cookie';
-import { networks } from './config';
+import network from './config/network';
 
-const network = networks.kylin;
 const requiredFields = { accounts: [network] };
 
 export default {
