@@ -164,7 +164,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { NasTool } from '@/api';
+// import { NasTool } from '@/api';
 import { toReadablePrice } from '@/util';
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import ElPopover from '../../node_modules/element-ui/packages/popover/src/main.vue';
@@ -264,7 +264,7 @@ export default {
       // const idol = new Contract();
       const tokenId = this.$route.params.id;
       const result = await idol.priceOf(tokenId);
-      return NasTool.fromWeiToNas(result).toString();
+      // return NasTool.fromWeiToNas(result).toString();
     },
     async item() {
       // const contract = new Contract();
