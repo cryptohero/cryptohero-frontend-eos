@@ -5,7 +5,7 @@
 // Like computed properties, a getter's result is cached based on its dependencies,
 // and will only re-evaluate when some of its dependencies have changed.
 import Eos from 'eosjs';
-import { networks } from '../config';
+import network from '../config/network';
 
 export default {
   getServerURL: () => 'https://api.cryptohero.pro/',
@@ -19,5 +19,5 @@ export default {
       return null
     }
   },
-  eos: ({ scatter, network }) => scatter.eos(networks[network], Eos, {}) || null,
+  eos: ({ scatter }) => scatter.eos(network, Eos, {}) || null,
 };
