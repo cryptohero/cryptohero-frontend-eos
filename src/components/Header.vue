@@ -98,7 +98,7 @@ export default {
   },
   async created() {
     this.$store.dispatch('initLocale');
-    this.$store.dispatch('FETCH_ME');
+    // this.$store.dispatch('FETCH_ME');
   },
   computed: {
     locale: {
