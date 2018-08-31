@@ -98,7 +98,6 @@
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import ItemList from '@/components/ItemList';
 import { toReadablePrice } from '@/util';
-import Contract from '@/contract/cryptohero';
 import superagent from 'superagent';
 import Paginate from 'vuejs-paginate';
 import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue';
@@ -139,7 +138,7 @@ export default {
 
   },
   async created() {
-    const contract = new Contract();
+    // const contract = new Contract();
     const ids = [];
 
     superagent.get('https://togetthere.cn/nasapi/hero').end(async (err, res) => {
@@ -229,11 +228,11 @@ export default {
     queryResult(name) {
       const res = [];
       for (let i = 0; i < this.itemIds.length; i++) {
-        if (this.itemIds[i].name.indexOf(this.heroName) != -1) {
+        if (this.itemIds[i].name.indexOf(this.heroName) !== -1) {
           res.push(this.itemIds[i]);
           continue;
         }
-        if (this.itemIds[i].nickname.indexOf(this.heroName) != -1) {
+        if (this.itemIds[i].nickname.indexOf(this.heroName) !== -1) {
           res.push(this.itemIds[i]);
           continue;
         }

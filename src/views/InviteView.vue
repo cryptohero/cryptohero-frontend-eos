@@ -63,7 +63,6 @@
 </template>
 <script>
 import Clipboard from 'clipboard';
-import Contract from '@/contract/cryptohero';
 import { mapState, mapGetters } from 'vuex';
 
 export default {

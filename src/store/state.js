@@ -12,7 +12,7 @@ import cards from '../config/cards.json';
 
 export default () => ({
   locale: '',
-  me: null,
+  // me: null,
   signInError: null,
   network: 'kylin',
   scatter: null,

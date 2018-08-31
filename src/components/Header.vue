@@ -87,6 +87,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: 'Header',
   data() {
@@ -115,9 +116,7 @@ export default {
         this.$store.dispatch('setLocale', value);
       },
     },
-    me() {
-      return this.$store.state.me;
-    },
+    ...mapGetters(['me'])
   },
   watch: {
     locale(val) {

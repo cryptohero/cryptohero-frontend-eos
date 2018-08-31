@@ -35,8 +35,6 @@
   </div>
 </template>
 <script>
-import Contract from '../contract/cryptohero';
-import LinkIdol from '@/contract/cryptohero';
 
 export default {
   name: 'RankingList',
@@ -53,7 +51,7 @@ export default {
   },
 
   async mounted() {
-    const contract = new Contract();
+    // const contract = new Contract();
     const res = await contract.getHoldersStat();
     if (res !== null) {
       this.items = res.sort(this.compare('balance'));
