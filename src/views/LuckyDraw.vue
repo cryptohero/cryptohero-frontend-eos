@@ -38,8 +38,6 @@
 <script>
 import Cookie from 'js-cookie';
 import { Notification } from 'element-ui';
-import Contract from '@/contract/cryptohero';
-import { BigNumber } from 'bignumber.js';
 import { mapState, mapGetters } from 'vuex';
 
 export default {

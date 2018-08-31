@@ -141,8 +141,6 @@
 
 <script>
 import { mapState } from 'vuex';
-import NasId from '@/contract/nasid';
-import LinkIdol from '@/contract/cryptohero';
 import CardItem from '@/components/CardItem';
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import Paginate from 'vuejs-paginate';
@@ -190,27 +188,27 @@ export default {
   },
   asyncComputed: {
     async getShareOfHolder() {
-      const idol = new LinkIdol();
+      // const idol = new LinkIdol();
       const result = await idol.getShareOfHolder(this.address);
       return result || 0;
     },
     async getTotalEarnByShare() {
-      const idol = new LinkIdol();
+      // const idol = new LinkIdol();
       const result = await idol.getTotalEarnByShare(this.address);
       return JSON.parse(result) || 0;
     },
     async getTotalEarnByReference() {
-      const idol = new LinkIdol();
+      // const idol = new LinkIdol();
       const result = await idol.getTotalEarnByReference(this.address);
       return JSON.parse(result) || 0;
     },
     async profile() {
-      const nasId = new NasId();
+      // const nasId = new NasId();
       const result = await nasId.fetchAccountDetail(this.address);
       return result;
     },
     async cardsInfo() {
-      const idol = new LinkIdol();
+      // const idol = new LinkIdol();
       const result = await idol.getUserCards(this.address);
       this.loading = false;
       // 是否兑换
@@ -258,7 +256,7 @@ export default {
         }
       }
       this.notNum = arr;
-      const contract = new LinkIdol();
+      // const contract = new LinkIdol();
       const result = await contract.getNotCollectCards(arr);
       this.unCollectData = result;
       //       contract.cheat();
@@ -291,7 +289,7 @@ export default {
         alert('尚未集满108种卡牌，无法进行兑换。');
         $('#btn').attr('disabled', 'true');
       }
-      const contract = new LinkIdol();
+      // const contract = new LinkIdol();
       const result = await contract.claim();
       if (result !== 'cancel') {
         this.rankAfterClaim(result);

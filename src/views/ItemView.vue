@@ -164,8 +164,6 @@
 
 <script>
 import { mapState } from 'vuex';
-import NasId from '@/contract/nasid';
-import Contract from '@/contract/cryptohero';
 import { NasTool } from '@/api';
 import { toReadablePrice } from '@/util';
 import PulseLoader from 'vue-spinner/src/PulseLoader';
@@ -213,7 +211,7 @@ export default {
   },
   asyncComputed: {
     async getCardNum() {
-      const contract = new Contract();
+      // const contract = new Contract();
       const result = await contract.getCardsByAddress(this.me);
       console.error(result);
       let num = 0;
@@ -226,7 +224,7 @@ export default {
       return num;
     },
     async getCardsLeft() {
-      const contract = new Contract();
+      // const contract = new Contract();
       const result = await contract.getDrawCardsLeft();
       return result;
     },
@@ -246,13 +244,13 @@ export default {
         return result;
       }, */
     async isTokenClaimed() {
-      const idol = new Contract();
+      // const idol = new Contract();
       const heroId = this.$route.params.id;
       const result = await idol.isTokenClaimed(heroId);
       return !!result;
     },
     async carOwner() {
-      const idol = new Contract();
+      // const idol = new Contract();
       const heroId = this.$route.params.id;
       const result = await idol.ownerOf(heroId);
       if (this.address === result) {
@@ -263,13 +261,13 @@ export default {
       return result;
     },
     async heroPrice() {
-      const idol = new Contract();
+      // const idol = new Contract();
       const tokenId = this.$route.params.id;
       const result = await idol.priceOf(tokenId);
       return NasTool.fromWeiToNas(result).toString();
     },
     async item() {
-      const contract = new Contract();
+      // const contract = new Contract();
       const result = await contract.getCardInfoByTokenId(this.$route.params.id);
       console.error(result);
       this.loading = false;
