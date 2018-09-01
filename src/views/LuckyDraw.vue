@@ -81,6 +81,7 @@ export default {
     async draw() {
       const referrer = Cookie.get('referrer') || '';
       const { account, amount } = this;
+      const toFixedAmount = `${amount.toFixed(4)} EOS`
       try {
         if (amount <= 0) {
           throw new Error('Invalid Amount of EOS');
@@ -88,7 +89,7 @@ export default {
         await this.eosClient.transfer(
           account.name,
           'cryptoherooo',
-          `${amount} EOS`,
+          toFixedAmount,
           'draw',
         );
         Notification.success({
