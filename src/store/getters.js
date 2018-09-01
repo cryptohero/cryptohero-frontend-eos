@@ -5,13 +5,19 @@
 // Like computed properties, a getter's result is cached based on its dependencies,
 // and will only re-evaluate when some of its dependencies have changed.
 import Eos from 'eosjs';
-import { networks } from '../config';
+import network from '../config/network';
 
 export default {
   getServerURL: () => 'https://api.cryptohero.pro/',
   getContractNet: () => 'mainnet',
   identity: ({ scatter }) => scatter.identity || null,
   account: ({ scatter }) => scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos') || null,
-  me: ({ scatter }) => scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos').name || null,
-  eos: ({ scatter, network }) => scatter.eos(networks[network], Eos, {}) || null,
+  me: ({ scatter }) => {
+    if (scatter) {
+      return scatter.identity.accounts.find(({ blockchain }) => blockchain === 'eos').name
+    } else {
+      return null
+    }
+  },
+  eos: ({ scatter }) => scatter.eos(network, Eos, {}) || null,
 };

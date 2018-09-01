@@ -1,114 +1,26 @@
 <template>
 <div>
 <section>
-  <div class="userContainer" v-if="!profile">
-    <div class="">
-      <h2 class="title"  style="color: aliceblue">
-        Loading Profile, please wait……
-      </h2>
-    </div>
-  </div>
-  <div class="userContainer" v-else>
-    <div class="" >
-      <a href="http://nasid.pro">
-          <img :src="profile.avatar" alt="Identicon" style="border-radius: 50%;  width: 100px;">
-      </a>
-    </div><br>
-      <div class="">
-        <h2 class="title" style="color: aliceblue"> {{profile.nickname}} {{$t('Collect')}} </h2>
+  <div class="userContainer">
+      <div class="userPanel">
+        <h2 class="title" style="color: aliceblue"> {{username}} {{$t('Collect')}} </h2>
         <p class="useraddress">
-          {{$t('Content4')}}{{total}} / 108 {{$t('CardUnit')}} | {{$t('ownerCards')}}：{{allCardsCount}} {{$t('CardUnit')}}
+          {{$t('Content4')}} {{total}} / 108 {{$t('CardUnit')}} | {{$t('ownerCards')}}：{{totalCards}} {{$t('CardUnit')}}
           <el-button id="btn" type="success" round @click.native="claim()">{{$t('Finished')}}</el-button> </p>
-        <p class="useraddress"> {{$t('key')}} {{address}}</p>
       </div>
     </div>
     </section>
   <section>
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <div class="control">
-            <div  style="display: flex;display: -webkit-flex">
-            <div class="select" style="margin: 5px" v-show="actionFlag">
-              <select v-model="typeFlag" @change="fun(this)">
-                <option value="" style="display: none;" disabled selected>卡牌排序选择</option>
-                <option value="code">{{$t('Sort1')}}</option>
-                <option value="tokenId">{{$t('Sort2')}}</option>
-                <option value="price">{{$t('Sort3')}}</option>
-              </select>
-            </div>
-            <el-button  style="margin: 5px" type="error" plain @click.native="NotClection()">
-              {{$t('UnCollected')}}</el-button>
-            <el-button  style="margin: 5px" type="info" plain @click.native="HadClection()">
-              {{$t('Collected')}}</el-button>
-              <div class="btn-item">
-                <el-button type="primary" plain @click.native="AllClection()">{{$t('AllSet')}}</el-button>
-            </div>
-            </div>
-            <div class="btn-item" style="display: flex">
-            <el-input placeholder="请输入卡牌名称" prefix-icon="el-icon-search"
-            v-model="heroName" @keyup.enter.native="search()" />
-            </div>
-          </div>
-        </div>
-        <!--<div class="btn-item" style="display: flex">-->
-       <!--<el-input placeholder="请输入卡牌名称" prefix-icon="el-icon-search" v-model="heroName" @keyup.enter.native="search()"></el-input>-->
-    <!--<el-button type="primary" icon="el-icon-search" @click="search()">搜索</el-button>-->
-     <!--</div>-->
-      </div>
-   <div class="button-search">
-     <div class="btn-item"  v-show="actionFlag">
-       <el-button type="primary" plain @click.native="ObjecSort('code')">{{$t('Sort1')}}</el-button></div>
-     <div class="btn-item"  v-show="actionFlag">
-       <el-button type="success" plain @click.native="ObjecSort('tokenId')">{{$t('Sort2')}}</el-button></div>
-     <div class="btn-item"  v-show="actionFlag">
-       <el-button type="warning" plain @click.native="ObjecSort('price')">{{$t('Sort3')}}</el-button> </div>
-     <div class="btn-item" style="display: flex">
-       <el-input :placeholder="$t('Reminder')" prefix-icon="el-icon-search" v-model="heroName" @keyup.enter.native="search()"></el-input>
-    <!--<el-button type="primary" icon="el-icon-search" @click="search()">搜索</el-button>-->
-     </div>
-     <div class="btn-item">
-       <el-button type="error" plain @click.native="NotClection()">{{$t('UnCollected')}}</el-button>
-       </div>
-     <div class="btn-item">
-       <el-button type="info" plain @click.native="HadClection()">{{$t('Collected')}}</el-button>
-       </div>
-     <div class="btn-item">
-       <el-button type="primary" plain @click.native="AllClection()">{{$t('AllSet')}}</el-button>
-       </div>
-
-  </div>
-
-  <div class="price">
-    <div class="price1">
-  <b>{{$t('HeroCoin')}}{{this.getShareOfHolder}}</b>
-    </div>
-    <div class="price1">
-  <b>{{$t('Bonus')}}{{this.getTotalEarnByShare}}</b>
-   </div>
-   <div class="price1">
-  <b>{{$t('RecommendNas')}}{{this.getTotalEarnByReference}}</b>
-  </div>
-</div>
-  </section>
-  <section>
       <div class="columns is-multiline is-mobile section2div">
-        <div class="title11">
-          <h4>{{$t('His Cards')}}</h4>
-        </div>
-        <div v-if="loading">
-          <pulse-loader></pulse-loader>
-        </div>
-
+        <!-- <pulse-loader v-if="loading" /> -->
         <div class="column is-3-desktop is-4-tablet is-12-mobile cardItem card-image"
-        v-for="item in cardlist"  :key="item.id"
-        @mouseover="lightShow(item.code)"
-        @mouseout="lightunShow(item.code)"
-        @click="gotoCoinProfile(item)" style="margin-top: 18px;">
+            v-for="item in cardlist"  :key="item.id"
+            @click="gotoCoinProfile(item)" style="margin-top: 18px;">
             <div class="smallcardcharas">
               <img class="charaimg" v-lazy="getCardBack()">
             </div>
             <div class="smallcardcharas">
-              <img class="charaimg" v-lazy="getCardLightBack()" v-show="!lightisShow[item.code]">
+              <img class="charaimg" v-lazy="getCardLightBack()">
             </div>
           <img class="cardItemImg imageborder8 image is-5by4" alt="" :src="item.front"/>
           <div class="imageborder3">
@@ -117,252 +29,61 @@
               {{item.nickname}} · {{item.name}}</a>
           </span>
           </div>
-          <!-- <CardItem :item='item' :hasMouseOver='true'></CardItem> -->
         </div>
       </div>
+      <div class="pagination">
+        <el-pagination layout="prev, pager, next" :total="1000" />
+      </div>
     </section>
-
-  <paginate
-    :page-count="pagecount"
-    :page-range="3"
-    :margin-pages="2"
-    :click-handler="clickCallback"
-    :prev-text="'Prev'"
-    :next-text="'Next'"
-    :container-class="'pagination'"
-    :page-class="'pageitem'"
-    :page-link-class="'pageitema'"
-    :next-link-class="'pageitema'"
-    :prev-link-class="'pageitema'">
-  </paginate>
-
 </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import CardItem from '@/components/CardItem';
 import PulseLoader from 'vue-spinner/src/PulseLoader';
 import Paginate from 'vuejs-paginate';
-import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue';
-import ElInput from '../../node_modules/element-ui/packages/input/src/input.vue';
-import '../../node_modules/element-ui/lib/theme-chalk/index.css';
 import { Message } from 'element-ui';
+import network from "../config/network";
+import superagent from "superagent";
+import hero from "../config/cards.json";
 
 export default {
-  name: 'MyCollectionPage',
+  name: 'UserCollectionPage',
   data: () => ({
-    lightisShow: [],
-    items: [],
     loading: true,
-    allCardsInfo: [],
     cardlist: [],
-    pagecount: 0,
-    heroName: '',
-    allMyCards: [],
-    allCardsCount: '',
-    saveData: [],
-    total: '',
-    typeFlag: '',
-    uniqueNum: [],
-    notNum: [],
-    finalNums: [],
-    unCollectData: [],
-    actionFlag: true,
-
   }),
-  /* asyncComputed: {
-    async profile() {
-      const nasId = new NasId();
-      const result = await nasId.fetchAccountDetail(this.address);
-      return result;
-    },
-  }, */
   components: {
     Message,
-    ElInput,
-    ElButton,
     CardItem,
     PulseLoader,
     Paginate,
   },
   asyncComputed: {
-    async getShareOfHolder() {
-      // const idol = new LinkIdol();
-      const result = await idol.getShareOfHolder(this.address);
-      return result || 0;
-    },
-    async getTotalEarnByShare() {
-      // const idol = new LinkIdol();
-      const result = await idol.getTotalEarnByShare(this.address);
-      return JSON.parse(result) || 0;
-    },
-    async getTotalEarnByReference() {
-      // const idol = new LinkIdol();
-      const result = await idol.getTotalEarnByReference(this.address);
-      return JSON.parse(result) || 0;
-    },
-    async profile() {
-      // const nasId = new NasId();
-      const result = await nasId.fetchAccountDetail(this.address);
-      return result;
-    },
-    async cardsInfo() {
-      // const idol = new LinkIdol();
-      const result = await idol.getUserCards(this.address);
-      this.loading = false;
-      // 是否兑换
-      this.allCardsInfo = result.sort(this.compare('code'));
-      this.allMyCards = this.allCardsInfo;
-      this.allCardsCount = this.allCardsInfo.length;
-      /* this.saveData = this.allCardsInfo;
-      this.cardlist = result.slice(0,8);
-      this.pagecount = Math.ceil(result.length/8); */
-      const rsp = [];
-      const rt = [];
-      const rnum = [];
-      for (let i = 0; i < this.allCardsInfo.length; i++) {
-        rsp.push(this.allCardsInfo[i].code);
-        if (!this.allCardsInfo[i].claimed) {
-          rt.push(this.allCardsInfo[i]);
-          rnum.push(this.allCardsInfo[i].code);
-        }
-      }
-      this.uniqueNum = this.unique(rsp);
-      this.total = this.uniqueNum.length;
-      const final = [];
-      const finalNum = this.unique(rnum);
-      this.finalNums = finalNum;
-
-      for (const i in finalNum) {
-        for (const em in rt) {
-          if (rt[em].code === finalNum[i]) {
-            final.push(rt[em]);
-            break;
-          }
-        }
-      }
-      this.saveData = final;
-      this.cardlist = final.slice(0, 8);
-      this.pagecount = Math.ceil(final.length / 8);
-      return final;
-    },
-    async NotClectionCards() {
-      const arr = [];
-      const clNum = this.finalNums;
-      for (let i = 0; i < 115; i++) {
-        if (clNum.indexOf(i) === -1) {
-          arr.push(i);
-        }
-      }
-      this.notNum = arr;
-      // const contract = new LinkIdol();
-      const result = await contract.getNotCollectCards(arr);
-      this.unCollectData = result;
-      //       contract.cheat();
-      return result;
-    },
+    
   },
   methods: {
-    AllClection() {
-      this.allCardsInfo = this.allMyCards.sort(this.compare('code'));
-      this.cardlist = this.allMyCards.slice(0, 8);
-      this.pagecount = Math.ceil(this.allMyCards.length / 8);
-    },
-    NotClection() {
-      this.allCardsInfo = this.unCollectData.sort(this.compare('code'));
-      this.cardlist = this.allCardsInfo.slice(0, 8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
-      this.actionFlag = false;
-    },
-    HadClection() {
-      this.allCardsInfo = this.saveData.sort(this.compare('code'));
-      this.cardlist = this.allCardsInfo.slice(0, 8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
-      this.actionFlag = true;
-    },
-    minusFun(arr1, arr2) {
-      return arr1.uniquelize().each(o => (arr2.contains(0) ? null : o));
-    },
-    async claim() {
-      if (this.total < 108) {
-        alert('尚未集满108种卡牌，无法进行兑换。');
-        $('#btn').attr('disabled', 'true');
+    async fetchCardsList() {
+      const {host, protocol} = network
+      const {body} = await superagent.post(`${protocol}://${host}/v1/chain/get_table_rows`, {
+        json: true,
+        "scope": "cryptoherooo",
+        "code": "cryptoherooo",
+        "table": "card",
+      })
+      const tokens = body.rows.filter(record => record.owner === this.username)
+      console.log(tokens)
+
+      this.cardlist = tokens.map(token => {
+      const cardImage = {
+        // code: id,
+        front: `http://test.cdn.hackx.org/heros_new/${token.type}.jpeg`,
+        back: `http://test.cdn.hackx.org/backs_new/${token.type}.jpeg`,
       }
-      // const contract = new LinkIdol();
-      const result = await contract.claim();
-      if (result !== 'cancel') {
-        this.rankAfterClaim(result);
-      }
-    },
-    fun() {
-      this.ObjecSort(this.typeFlag);
-    },
-    unique(arr) {
-      let result = [],
-        hash = {};
-      for (let i = 0, elem; (elem = arr[i]) !== null; i++) {
-        if (!hash[elem]) {
-          result.push(elem);
-          hash[elem] = true;
-        }
-      }
-      return result;
-    },
-    queryAll() {
-      this.allCardsInfo = this.saveData;
-      this.cardlist = this.saveData.slice(0, 8);
-      this.pagecount = Math.ceil(this.saveData.length / 8);
-    },
-    queryResult(name) {
-      const res = [];
-      for (let i = 0; i < this.allCardsInfo.length; i++) {
-        if (this.allCardsInfo[i].name.indexOf(this.heroName) !== -1) {
-          res.push(this.allCardsInfo[i]);
-          continue;
-        }
-        if (this.allCardsInfo[i].nickname.indexOf(this.heroName) !== -1) {
-          res.push(this.allCardsInfo[i]);
-          continue;
-        }
-        // if( === ) {
-        //   res.push(this.allCardsInfo[i]);
-        // }
-      }
-      this.allCardsInfo = res.sort(this.compare(name));
-      this.cardlist = this.allCardsInfo.slice(0, 8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
-    },
-    ObjecSort(name) {
-      if (!this.heroName) {
-        this.allCardsInfo = this.saveData;
-      }
-      this.allCardsInfo.sort(this.compare(name));
-      this.cardlist = this.allCardsInfo.slice(0, 8);
-      this.pagecount = Math.ceil(this.allCardsInfo.length / 8);
-    },
-    compare(prop) {
-      return function (obj1, obj2) {
-        let val1 = obj1[prop];
-        let val2 = obj2[prop];
-        if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
-          val1 = Number(val1);
-          val2 = Number(val2);
-        }
-        if (val1 < val2) {
-          return -1;
-        } else if (val1 > val2) {
-          return 1;
-        }
-        return 0;
-      };
-    },
-    search() {
-      if (!this.heroName) {
-        this.queryAll();
-      } else {
-        this.queryResult('code');
-      }
+        return Object.assign(token, hero[token.type], cardImage)
+      })
+      this.loading = false
     },
     gotoCoinProfile(em) {
       if (this.actionFlag) {
@@ -379,42 +100,30 @@ export default {
     },
     getCardLightBack() {
       return `http://test.cdn.hackx.org/cardback/cardback.png`;
-    },
-    lightShow(id) {
-      this.lightisShow[id] = true;
-      this.$forceUpdate();
-    },
-    lightunShow(id) {
-      this.lightisShow[id] = false;
-      this.$forceUpdate();
-    },
-    clickCallback(pageNum) {
-      this.cardlist = this.allCardsInfo.slice((pageNum - 1) * 8, pageNum * 8);
-    },
-    rankAfterClaim(snres) {
-      // 0 failed, 1 success, 2 pending
-      if (this.total >= 108) {
-        // console.error("claimres:"+JSON.parse(result1)["data"]["status"])
-        const formData = new FormData();
-        formData.append('address', this.address);
-        this.$http.post(`${this.$store.getters.getServerURL}addrankshuihunas.php`, formData)
-          .then((response) => {
-            const res = response.body;
-          });
-      }
-      // }, 30000);
-    },
+    }
   },
-  created() {
-
+  async created() {
+    await this.fetchCardsList()
   },
   computed: {
-    ...mapState({
-      me: state => state.me,
-    }),
-    address() {
-      return this.$route.params.address || this.me;
+    ...mapGetters(['eos']),
+    totalCards() {
+      return this.cardlist.length
     },
+    total() {
+      const heros = {}
+      var acc = 0
+      for (const curCard of this.cardlist) {
+        if (!(heros[curCard.type])) {
+            heros[curCard.type] = true
+            acc += 1;
+        }
+      }
+      return acc
+    },
+    username() {
+      return this.$route.params.address
+    }
   },
 };
 </script>
@@ -611,6 +320,9 @@ export default {
   .usercontent{
     padding-top: 27%;
 }
+}
+.pagination {
+  background: white;
 }
 </style>
 
