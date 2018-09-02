@@ -43,7 +43,7 @@ import { mapState, mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      amount: 0.0001,
+      amount: 1,
     };
   },
   asyncComputed: {
@@ -80,17 +80,19 @@ export default {
   methods: {
     async draw() {
       const referrer = Cookie.get('referrer') || '';
-      const { account, amount } = this;
+      const { account, amount, createHexRandom } = this;
       const toFixedAmount = `${amount.toFixed(4)} EOS`
       try {
         if (amount <= 0) {
           throw new Error('Invalid Amount of EOS');
         }
+        var txCommand = `draw ${createHexRandom()}`
+        if (referrer !== '') { txCommand += ` inviter${referrer}` }
         await this.eosClient.transfer(
           account.name,
           'cryptoherooo',
           toFixedAmount,
-          'draw',
+          txCommand,
         );
         Notification.success({
           title: '购买交易成功',
@@ -115,72 +117,38 @@ export default {
           }
         }
       }
-
-      // if (result !== 'cancel') {
-      //   setTimeout(async () => {
-      //     const result1 = await contract.checkSerialNumber(result);
-      //     if (JSON.parse(result1).data.status == 1) {
-      //       if (referrer) {
-      //         const formData = new FormData();
-      //         formData.append('address', this.$store.state.me);
-      //         // formData.append('address', referrer);
-      //         formData.append('inviteaddress', referrer);// this.$route.params.address);
-      //         formData.append('cardnum', this.count);
-      //         formData.append('price', this.getPrice);
-      //         formData.append('witchnet', this.$store.getters.getContractNet);// "test");
-      //         formData.append('sn', result);
-      //         this.$http
-      //           .post(`${this.$store.getters.getServerURL}inviteshuihuadd.php`, formData)
-      //           .then((response) => {
-      //             const res = response.body;
-      //             console.log(res);
-      //             alert('抽卡成功，到我的收藏里看看吧');
-      //           });
-      //       } else {
-      //         alert('抽卡成功，到我的收藏里看看吧');
-      //       }
-      //     }
-      //     // console.log("crytpresp:"+JSON.parse(result1)["msg"]);
-      //   }, 20000);
-      // }
     },
-
-    async airdrop() {
-      const contract = new Contract();
-      const referrer = Cookie.get('referrer') || '';
-
-      console.log(`crytpresp:${referrer}`);
-      const result = await contract.airdrop(referrer, this.getDisplayTotal);
-      console.log(`crytpresp00:${result}`);
-
-      // if (result !== 'cancel') {
-      //   setTimeout(async () => {
-      //     const result1 = await contract.checkSerialNumber(result);
-      //     if (JSON.parse(result1).data.status == 1) {
-      //       if (referrer) {
-      //         const formData = new FormData();
-      //         formData.append('address', this.$store.state.me);
-      //         // formData.append('address', referrer);
-      //         formData.append('inviteaddress', referrer);// this.$route.params.address);
-      //         formData.append('cardnum', this.count);
-      //         formData.append('price', this.getPrice);
-      //         formData.append('witchnet', this.$store.getters.getContractNet);// "test");
-      //         formData.append('sn', result);
-      //         this.$http
-      //           .post(`${this.$store.getters.getServerURL}inviteshuihuadd.php`, formData)
-      //           .then((response) => {
-      //             const res = response.body;
-      //             console.log(res);
-      //             alert('抽卡成功，到我的收藏里看看吧');
-      //           });
-      //       } else {
-      //         alert('抽卡成功，到我的收藏里看看吧');
-      //       }
-      //     }
-      //     console.log(`crytpresp:${JSON.parse(result1).msg}`);
-      //   }, 20000);
-      // }
-    },
+    createHexRandom() {
+            var num = '';
+            for (let i = 0; i < 64; i++) {
+                var tmp = Math.floor(Math.random() * 16);
+                if (tmp > 9) {
+                    switch (tmp) {
+                        case (10):
+                            num += 'a';
+                            break;
+                        case (11):
+                            num += 'b';
+                            break;
+                        case (12):
+                            num += 'c';
+                            break;
+                        case (13):
+                            num += 'd';
+                            break;
+                        case (14):
+                            num += 'e';
+                            break;
+                        case (15):
+                            num += 'f';
+                            break;
+                    }
+                } else {
+                    num += tmp;
+                }
+            }
+            return num;
+        }
   },
 };
 </script>
