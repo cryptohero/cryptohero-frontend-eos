@@ -71,6 +71,7 @@ export default {
         "scope": "cryptoherooo",
         "code": "cryptoherooo",
         "table": "card",
+        "limit": 10000
       })
       const tokens = body.rows.filter(record => record.owner === this.username)
       console.log(tokens)
